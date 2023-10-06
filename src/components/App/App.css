@@ -32,8 +32,9 @@ Button
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: #006a92;
   color: #f8f8f8;
+  font-family: 'Gruppo', sans-serif;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -55,8 +56,9 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #CEE9F1;
   text-decoration: none;
+  color:#444;
 }
 
 /* This line makes the "Register" and "Login" buttons look like links */
@@ -115,4 +117,9 @@ input {
 .welcomeText{
   font-size: 30px;
   font-family: 'Gruppo', sans-serif;
+}
+
+.idText{
+  font-family: 'Gruppo', sans-serif;
+  font-size: 20px;
 }
