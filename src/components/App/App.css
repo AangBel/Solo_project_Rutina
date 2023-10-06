@@ -110,3 +110,9 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+
+.welcomeText{
+  font-size: 30px;
+  font-family: 'Gruppo', sans-serif;
+}
