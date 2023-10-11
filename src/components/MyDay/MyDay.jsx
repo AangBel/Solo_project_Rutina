@@ -23,10 +23,14 @@ export default function MyDay() {
   console.log("in the MyDay function");
   const dispatch = useDispatch();
   const history = useHistory();
+
   const taskStore = useSelector((store) => store.taskStore);
   console.log('this is the taskStore', taskStore);
   
   useEffect(() => {
+    console.log("in useEffect");
+    //OR 
+    // const action = { type: "GET_ZOO_ANIMALS" }; instead of dispatch get tasks
     dispatch({ type: "GET_TASKS" });
   }, []);
 

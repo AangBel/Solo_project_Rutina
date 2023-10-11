@@ -26,7 +26,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 //would it be '/api/tasks' or just tasks?
 // app.use('/tasks', myDayRouter);
-app.use('api/tasks', myDayRouter);
+app.use('/tasks', myDayRouter);
 
 
 // Serve static files

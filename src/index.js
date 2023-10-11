@@ -21,7 +21,7 @@ function* rootSaga() {
 function* fetchAllTasks() {
   // get all tasks from the DB
   try {
-    const fetchTasks = yield axios.get("/api/tasks");
+    const fetchTasks = yield axios.get("/tasks");
     //is it fetchTasks.data or fetchTasks?
     console.log("get all:", fetchTasks.data);
     yield put({ type: 'SET_TASKS', payload: fetchTasks.data});
@@ -32,17 +32,17 @@ function* fetchAllTasks() {
 //payload or taskConst?
 function* addTaskSaga(payload) {
   console.log('this is payload', payload);
-
   console.log('this is task name', payload.task_name);
   console.log('this is payload.taskTimeStart', payload.taskTimeStart);
   console.log('this is payload.taskTimeEnd', payload.taskTimeEnd);
+
   try {
     const newRoutine = payload;
   // send the task to the DB
   yield axios.post("/tasks", newRoutine);
   // update the store with the new task
-  // TODO fetch function here
-  fetchAllTasks();
+  // TODO fetch function here with or without ()???
+  fetchAllTasks;
 } catch {
   console.log("get tasks error");
 }
