@@ -14,16 +14,16 @@ import axios from "axios";
 import {put, takeEvery} from "redux-saga/effects";
 
 function* rootSaga() {
-  // yield takeEvery("GET_ZOO_ANIMALS", fetchAllAnimals);
-  // yield takeEvery("ADD_ANIMAL", addAnimal);
+  yield takeEvery("GET_TASKS", fetchAllTasks);
+  yield takeEvery("ADD_TASK", addTaskSaga);
 }
 
-function* fetchAllAnimals() {
-  // get all animals from the DB
+function* fetchAllTasks() {
+  // get all tasks from the DB
   try {
-    const animals = yield axios.get("/zoo");
-    console.log("get all:", animals.data);
-    yield put({ type: 'SET_ZOO_ANIMALS', payload: animals.data });
+    const fetchTasks = yield axios.get("/tasks");
+    console.log("get all:", fetchTasks.data);
+    yield put({ type: 'SET_TASKS', payload: fetchTasks.data});
   } catch {
     console.log("get all error");
   }
@@ -49,9 +49,9 @@ const sagaMiddleware = createSagaMiddleware();
 
 
 // Used to store class and number of unique animals in that class
-const zooAnimals = (state = [], action) => {
+const taskStore = (state = [], action) => {
   switch (action.type) {
-      case 'SET_ZOO_ANIMALS':
+      case 'SET_TASKS':
           return action.payload;
       default:
           return state;
@@ -61,7 +61,7 @@ const zooAnimals = (state = [], action) => {
 // Create one store that all components can use
 const storeInstance = createStore(
   combineReducers({
-      zooAnimals,
+      taskStore,
   }),
   // Add sagaMiddleware to our store
   applyMiddleware(sagaMiddleware, logger),

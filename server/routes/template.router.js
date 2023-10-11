@@ -23,7 +23,7 @@ router.post("/tasks", (req, res) => {
     VALUES ($1, $2, $3, $4, $5)
   `;
 
-  pool.query(insertNewTask[hacer.taskName, hacer.taskTimeStart, hacer.taskTimeEnd, hacer.status, hacer.userId])
+  pool.query(insertNewTask[hacer.taskName, hacer.task_time_start, hacer.task_time_end, hacer.status, hacer.userId])
   .then((result) => {
     console.log('this is the result under the router.post', result);
   }).catch((err) => {
