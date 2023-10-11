@@ -22,6 +22,7 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 
 
 import "./App.css";
+import AddTask from "../AddTask/AddTask";
 
 function App() {
   const dispatch = useDispatch();
@@ -103,6 +104,12 @@ function App() {
             )}
           </Route>
 
+          <Route exact path="/AddTask">
+
+            <AddTask>
+              
+            </AddTask>
+          </Route>
           {/* <Route exact path="/MyDay">
             <MyDay />
           </Route> */}

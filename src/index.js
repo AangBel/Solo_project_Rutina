@@ -5,7 +5,70 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 
 import App from './components/App/App';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+// Provider allows us to use redux within our react app
+import logger from 'redux-logger';
+// Import saga middleware
+import createSagaMiddleware from 'redux-saga';
+import axios from "axios";
+import {put, takeEvery} from "redux-saga/effects";
 
+function* rootSaga() {
+  // yield takeEvery("GET_ZOO_ANIMALS", fetchAllAnimals);
+  // yield takeEvery("ADD_ANIMAL", addAnimal);
+}
+
+function* fetchAllAnimals() {
+  // get all animals from the DB
+  try {
+    const animals = yield axios.get("/zoo");
+    console.log("get all:", animals.data);
+    yield put({ type: 'SET_ZOO_ANIMALS', payload: animals.data });
+  } catch {
+    console.log("get all error");
+  }
+}
+//payload or taskConst?
+function* addTaskSaga(payload) {
+  console.log('this is payload', payload);
+
+  console.log('this is task name', payload.task_name);
+  console.log('this is payload.taskTimeStart', payload.taskTimeStart);
+  console.log('this is payload.taskTimeEnd', payload.taskTimeEnd);
+  try {
+    const newRoutine = payload;
+  // send the task to the DB
+  yield axios.post("/tasks", newRoutine);
+  // update the store with the new task
+  // TODO fetch function here
+} catch {
+  console.log("get tasks error");
+}
+}
+const sagaMiddleware = createSagaMiddleware();
+
+
+// Used to store class and number of unique animals in that class
+const zooAnimals = (state = [], action) => {
+  switch (action.type) {
+      case 'SET_ZOO_ANIMALS':
+          return action.payload;
+      default:
+          return state;
+  }
+}
+
+// Create one store that all components can use
+const storeInstance = createStore(
+  combineReducers({
+      zooAnimals,
+  }),
+  // Add sagaMiddleware to our store
+  applyMiddleware(sagaMiddleware, logger),
+);
+
+// Pass rootSaga into our sagaMiddleware
+sagaMiddleware.run(rootSaga);
 
 const root = ReactDOM.createRoot(document.getElementById('react-root'));
 root.render(
