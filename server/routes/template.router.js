@@ -2,6 +2,44 @@ const express = require("express");
 const pool = require("../modules/pool");
 const router = express.Router();
 
+
+
+// // Handles Ajax request for user information if user is authenticated
+// router.get('/', rejectUnauthenticated, (req, res) => {
+//   // TODO - not entirely sure about whether the userID = ($1) syntax is correct
+//   const query =  `
+//   SELECT * FROM Routines_1_Basic 
+//   WHERE userId = ($1)`;
+//   pool.query(query)
+//   .then((result)=>{
+//     res.send(result.rows);
+//   })
+//   .catch((err) => {
+//     console.log("error in GET all Tasks", err);
+//     res.sendStatus(500);
+//   });
+//   // Send back user object from the session (previously queried from the database)
+//   // TODO DO I HAVE TO USE THIS PART? IS IT PART OF THE AUTH? IF IT IS AND IT ONLY SENDS 
+//   // TODO THE USERS OWN STUFF THEN DOES THAT MEAN I DONT HAVE TO DO THE USERID=($1) PART IN THE QUERY?
+//   // res.send(req.user);
+// });
+//-------------------------------------------------
+// THIS ONE DOESNT HAVE THE USER ID IN THE SQL QUERY AND IT USES THE RES.SEND(REQ.USER) FROM THE TEMPLATE
+router.get('/', rejectUnauthenticated, (req, res) => {
+  // TODO - not entirely sure about whether the userID = ($1) syntax is correct
+  const query =  `
+  SELECT * FROM Routines_1_Basic`;
+  pool.query(query)
+  .then((result)=>{
+    res.send(req.user);
+  })
+  .catch((err) => {
+    console.log("error in GET all Tasks", err);
+    res.sendStatus(500);
+  });
+});
+// -------------------------------------------------
+
 /**
  * GET route template
  */
