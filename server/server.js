@@ -9,6 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
+const myDayRouter = require('./routes/myday.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -23,6 +24,10 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+//would it be '/api/tasks' or just tasks?
+// app.use('/tasks', myDayRouter);
+app.use('api/tasks', myDayRouter);
+
 
 // Serve static files
 app.use(express.static('build'));

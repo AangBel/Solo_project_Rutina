@@ -1,8 +1,12 @@
-const express = require("express");
-const pool = require("../modules/pool");
+const express = require('express');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
+const encryptLib = require('../modules/encryption');
+const pool = require('../modules/pool');
+const userStrategy = require('../strategies/user.strategy');
+
 const router = express.Router();
-
-
 
 // // Handles Ajax request for user information if user is authenticated
 // router.get('/', rejectUnauthenticated, (req, res) => {
@@ -24,7 +28,7 @@ const router = express.Router();
 //   // res.send(req.user);
 // });
 //-------------------------------------------------
-// THIS ONE DOESNT HAVE THE USER ID IN THE SQL QUERY AND IT USES THE RES.SEND(REQ.USER) FROM THE TEMPLATE
+// THIS ONE DOESN'T HAVE THE USER ID IN THE SQL QUERY AND IT USES THE RES.SEND(REQ.USER) FROM THE TEMPLATE
 router.get('/', rejectUnauthenticated, (req, res) => {
   // TODO - not entirely sure about whether the userID = ($1) syntax is correct
   const query =  `

@@ -18,7 +18,7 @@ export default function MyDay() {
   console.log("in the MyDay function");
   const dispatch = useDispatch();
   const history = useHistory();
-  const queHacer = useSelector((store) => store.queHacer);
+  const taskStore = useSelector((store) => store.taskStore);
 
   useEffect(() => {
     dispatch({ type: "GET_TASKS" });

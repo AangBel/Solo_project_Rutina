@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from './redux/store';
 
 import App from './components/App/App';
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 // Provider allows us to use redux within our react app
 import logger from 'redux-logger';
 // Import saga middleware
@@ -21,7 +21,7 @@ function* rootSaga() {
 function* fetchAllTasks() {
   // get all tasks from the DB
   try {
-    const fetchTasks = yield axios.get("/tasks");
+    const fetchTasks = yield axios.get("/api/tasks");
     //is it fetchTasks.data or fetchTasks?
     console.log("get all:", fetchTasks.data);
     yield put({ type: 'SET_TASKS', payload: fetchTasks.data});
@@ -42,14 +42,14 @@ function* addTaskSaga(payload) {
   yield axios.post("/tasks", newRoutine);
   // update the store with the new task
   // TODO fetch function here
+  fetchAllTasks();
 } catch {
   console.log("get tasks error");
 }
 }
 const sagaMiddleware = createSagaMiddleware();
 
-
-// Used to store class and number of unique animals in that class
+// Used to store 
 const taskStore = (state = [], action) => {
   switch (action.type) {
       case 'SET_TASKS':
@@ -58,6 +58,7 @@ const taskStore = (state = [], action) => {
           return state;
   }
 }
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Create one store that all components can use
 const storeInstance = createStore(
@@ -65,8 +66,8 @@ const storeInstance = createStore(
       taskStore,
   }),
   // Add sagaMiddleware to our store
-  applyMiddleware(sagaMiddleware, logger),
-);
+ composeEnhancers(applyMiddleware(sagaMiddleware, logger),
+));
 
 // Pass rootSaga into our sagaMiddleware
 sagaMiddleware.run(rootSaga);
