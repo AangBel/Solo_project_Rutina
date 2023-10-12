@@ -12,7 +12,7 @@ function* addTaskSagaFn(action) {
     try {
       const newRoutine = payload;
       // send the task to the DB
-      yield axios.post("/tasks", newRoutine);
+      yield axios.post("/api/tasks", newRoutine);
 
       //not sure about this one!
       yield put(fetchAllTasks());

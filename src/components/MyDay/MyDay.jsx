@@ -28,9 +28,10 @@ export default function MyDay() {
   console.log("this is the taskStore", taskStore);
 
   useEffect(() => {
-    console.log("in useEffect");
+    // console.log("in useEffect");
     //OR
     // const action = { type: "GET_ZOO_ANIMALS" }; instead of dispatch get tasks
+    // const action = {type: "GET_TASKS"}
     dispatch({ type: "GET_TASKS" });
   }, []);
 

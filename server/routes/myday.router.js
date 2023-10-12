@@ -11,16 +11,15 @@ const router = express.Router();
 /**
  * GET route
  */
-router.get('/tasks', rejectUnauthenticated, (req, res) => {
-  // TODO - not entirely sure about whether the userID = ($1) syntax is correct
+router.get('/api/tasks', rejectUnauthenticated, (req, res) => {
   const query =  `
   SELECT * FROM Routines_1_Basic`;
   pool.query(query)
   .then((result)=>{
-    // console.log('this is result.rows', result.rows);
-    console.log('this is result.rows', req.user);
-
-    res.send(req.user);
+    console.log('this is result.rows', result.rows);
+    // console.log('this is result.rows', req.user);
+    res.send(result.rows);
+    // res.send(req.user);
   })
   .catch((err) => {
     console.log("error in GET all Tasks", err);
