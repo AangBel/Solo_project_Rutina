@@ -18,7 +18,7 @@ export default function AddTask() {
   console.log("in the MyDay function");
 
   let dispatch = useDispatch();
-
+//we don't want to use useState bc this is for local shenanigans... or do we?
   const [taskName, setTaskName] = useState([]);
   const [taskTimeStart, setTaskTimeStart] = useState([]);
   const [taskTimeEnd, setTaskTimeEnd] = useState([]);
