@@ -19,8 +19,7 @@ import {
 
 import store from "../../redux/store";
 
-
-// import "./MyDay.css";
+import "./MyDay.css";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 // -----------------------------------
@@ -47,14 +46,15 @@ export default function MyDay() {
   }
   return (
     <>
-      <AppBar position="static">
+      <AppBar style={{ background: "#CEE9f1" }} position="static">
         <Toolbar
           sx={{
             display: "flex",
             justifyContent: "space-between",
+            color: "purple",
           }}
         >
-          <Button variant="contained">Today</Button>
+          <Button className="custom-button" variant="contained">Today</Button>
           <Button variant="contained" onClick={AddTaskOnClick}>
             Add Task
           </Button>
@@ -64,29 +64,32 @@ export default function MyDay() {
       <Box style={{ marginBottom: "90px", flexGrow: 1 }}>
         <section className="tasksClass">
           <Grid>
-          <div>
-      {taskStore.map((task) => (
-        <Card key={task.id} style={{ backgroundColor: "#f0f0f0", marginBottom: "16px" }}>
-          <CardContent>
-            <Typography variant="h5" component="div">
-              <List>
-                <ListItem>
-                  <ListItemText
-                    primary={task.task_name}
-                    secondary={`Start Time: ${task.task_time_start}`}
-                  />
-                </ListItem>
-                <ListItem>
-                  <ListItemText
-                    secondary={`End Time: ${task.task_time_end}`}
-                  />
-                </ListItem>
-              </List>
-            </Typography>
-          </CardContent>
-        </Card>
-      ))}
-    </div>
+            <div>
+              {taskStore.map((task) => (
+                <Card
+                  key={task.id}
+                  style={{ backgroundColor: "#f0f0f0", marginBottom: "16px" }}
+                >
+                  <CardContent>
+                    <Typography variant="h5" component="div">
+                      <List>
+                        <ListItem>
+                          <ListItemText
+                            primary={task.task_name}
+                            secondary={`Start Time: ${task.task_time_start}`}
+                          />
+                        </ListItem>
+                        <ListItem>
+                          <ListItemText
+                            secondary={`End Time: ${task.task_time_end}`}
+                          />
+                        </ListItem>
+                      </List>
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </Grid>
         </section>
       </Box>
