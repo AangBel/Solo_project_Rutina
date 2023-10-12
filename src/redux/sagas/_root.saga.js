@@ -7,7 +7,7 @@ import addTaskSaga from './addTaskSaga';
 import saveTaskWatcher from './addTaskSaga';
 import yieldSaga from './fetchAllTasksSaga';
 import fetchAllTasksSaga from './fetchAllTasksSaga';
-
+import taskStore from '../taskStore';
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -24,6 +24,7 @@ export default function* rootSaga() {
     addTaskSaga, //adding addTask Saga here but does it actually go here? It is a saga...
     fetchAllTasksSaga, //once again... does it go here? lets find out! what happens to the "ADD_TASK" that went with it?
     saveTaskWatcher,
+    taskStore,
     yieldSaga,
   ]);
 }
