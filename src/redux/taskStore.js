@@ -1,4 +1,4 @@
-const taskStore = (state = [], action) => {
+const taskStore = (state = {}, action) => {
   switch (action.type) {
     case "SET_TASKS":
       return action.payload;

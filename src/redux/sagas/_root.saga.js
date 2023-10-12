@@ -24,7 +24,7 @@ export default function* rootSaga() {
     addTaskSaga(), //adding addTask Saga here but does it actually go here? It is a saga...
     fetchAllTasksSaga, //once again... does it go here? lets find out! what happens to the "ADD_TASK" that went with it?
     saveTaskWatcher,
-    taskStore,
+    taskStore,//this breaks the fetch user as it logs me out and wont let me login if i add ()
     yieldSaga,
   ]);
 }

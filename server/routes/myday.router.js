@@ -11,9 +11,10 @@ const router = express.Router();
 /**
  * GET route
  */
+//with or without quotes on the table name?
 router.get("/", rejectUnauthenticated, (req, res) => {
   const query = `
-  SELECT * FROM Routines_1_Basic`;
+  SELECT * FROM "Routines_1_Basic"`;
   pool
     .query(query)
     .then((result) => {
@@ -36,8 +37,11 @@ router.get("/", rejectUnauthenticated, (req, res) => {
 // GET /api/tasks
 
 router.post("/", rejectUnauthenticated, (req, res) => {
-  console.log("this is req body", req.body);
-  console.log("this is req body payload", req.body.payload);
+  console.log("this is req body in router.post under myDay router", req.body);
+  // console.log("this is req body payload", req.body.payload);
+  console.log('this is req', req);
+  console.log('this is req.params', req.params);
+
 
   const hacer = req.body;
 

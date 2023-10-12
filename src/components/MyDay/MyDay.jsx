@@ -35,8 +35,6 @@ export default function MyDay() {
   useEffect(() => {
     // console.log("in useEffect");
     //OR
-    // const action = { type: "GET_ZOO_ANIMALS" }; instead of dispatch get tasks
-    // const action = {type: "GET_TASKS"}
     dispatch({ type: "FETCH_TASKS" });
   }, []);
 
@@ -54,7 +52,9 @@ export default function MyDay() {
             color: "purple",
           }}
         >
-          <Button className="custom-button" variant="contained">Today</Button>
+          <Button className="custom-button" variant="contained">
+            Today
+          </Button>
           <Button variant="contained" onClick={AddTaskOnClick}>
             Add Task
           </Button>

@@ -17,15 +17,15 @@ const middlewareList = process.env.NODE_ENV === 'development' ?
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-// Used to store
-const taskStore = (state = [], action) => {
-  switch (action.type) {
-    case "SET_TASKS":
-      return action.payload;
-    default:
-      return state;
-  }
-};
+// // Used to store
+// const taskStore = (state = [], action) => {
+//   switch (action.type) {
+//     case "SET_TASKS":
+//       return action.payload;
+//     default:
+//       return state;
+//   }
+// };
 
 //this is what is exported to the index.js....
 const store = createStore(
