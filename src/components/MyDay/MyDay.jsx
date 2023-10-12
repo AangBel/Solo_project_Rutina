@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   AppBar,
   Box,
@@ -29,14 +29,18 @@ export default function MyDay() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const taskStore = useSelector((store) => store.taskStore);
-  console.log("this is the taskStore", taskStore);
+  const [tasks, setTasks] = useState([]);
+  // const taskStore = useSelector((store) => store.taskStore);
+  // console.log("this is the taskStore", taskStore);
 
   useEffect(() => {
     // console.log("in useEffect");
     //OR
     dispatch({ type: "FETCH_TASKS" });
   }, []);
+
+
+
 
   function AddTaskOnClick() {
     console.log("clicked add task");
@@ -65,7 +69,9 @@ export default function MyDay() {
         <section className="tasksClass">
           <Grid>
             <div>
-              {taskStore.map((task) => (
+              {/* {taskStore.map((task) => ( */}
+              {tasks.map((task)=>(
+                
                 <Card
                   key={task.id}
                   style={{ backgroundColor: "#f0f0f0", marginBottom: "16px" }}
@@ -88,7 +94,7 @@ export default function MyDay() {
                     </Typography>
                   </CardContent>
                 </Card>
-              ))}
+                ))}
             </div>
           </Grid>
         </section>

@@ -22,7 +22,7 @@ export default function* rootSaga() {
     userSaga(),
     //these two under here stopped causing an error with fetching login stuff when i took out the () to each!
     addTaskSaga(), //adding addTask Saga here but does it actually go here? It is a saga...
-    fetchAllTasksSaga, //once again... does it go here? lets find out! what happens to the "ADD_TASK" that went with it?
+    fetchAllTasksSaga, //once again... does it go here? lets find out! what happens to the "ADD_TASK" that went with it?--- GET 500 error if add ()
     saveTaskWatcher,
     taskStore,//this breaks the fetch user as it logs me out and wont let me login if i add ()
     yieldSaga,

@@ -12,14 +12,19 @@ const router = express.Router();
  * GET route
  */
 //with or without quotes on the table name?
+//do i have to add the WHERE USERID= part?
+// SELECT * FROM "Routines_1_Basic"
+// WHERE "userId" = $1
 router.get("/", rejectUnauthenticated, (req, res) => {
   const query = `
-  SELECT * FROM "Routines_1_Basic"`;
+  SELECT * FROM Routines_1_Basic ORDER BY id ASC`;
+
   pool
     .query(query)
     .then((result) => {
       console.log("this is result.rows", result.rows);
-      // console.log('this is result.rows', req.user);
+      console.log("this is req.user", req.user);
+
       res.send(result.rows);
       // res.send(req.user);
     })
@@ -39,9 +44,8 @@ router.get("/", rejectUnauthenticated, (req, res) => {
 router.post("/", rejectUnauthenticated, (req, res) => {
   console.log("this is req body in router.post under myDay router", req.body);
   // console.log("this is req body payload", req.body.payload);
-  console.log('this is req', req);
-  console.log('this is req.params', req.params);
-
+  console.log("this is req", req);
+  console.log("this is req.params", req.params);
 
   const hacer = req.body;
 
@@ -49,7 +53,6 @@ router.post("/", rejectUnauthenticated, (req, res) => {
   INSERT INTO "Routines_1_Basic"("task_name", "task_time_start", "task_time_end", "status", "userId")
     VALUES ($1, $2, $3, $4, $5)
   `;
-
 
   const taskValues = [
     hacer.task_name,

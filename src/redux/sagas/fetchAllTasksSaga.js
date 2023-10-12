@@ -1,27 +1,44 @@
 import axios from "axios";
-import { put, takeLatest, call } from "redux-saga/effects";
+import { put, takeLatest, call,takeEvery } from "redux-saga/effects";
 
-function* fetchAllTasks(action) {
-  // get all tasks from the DB
+// function* fetchAllTasks(action) {
+//   // get all tasks from the DB
+//   try {
+//     // const response = yield axios.get("/api/tasks");
+//     const response = yield call(axios.get("/api/tasks"));
+//     //is it fetchTasks.data or fetchTasks?
+//     console.log("get all: aka response", response);
+//     console.log("this is response.data:", response.data);
+
+//     const tasks = response.data;
+
+//     yield put({ type: "SET_TASKS", payload: tasks });
+//   } catch (error) {
+//     console.log("get all error", error);
+//   }
+// }
+// function* fetchAllTasksSaga() {
+//   yield takeLatest("FETCH_TASKS", fetchAllTasks);
+// }
+
+// export default fetchAllTasksSaga;
+
+
+
+function* fetchAllTasks() {
   try {
-    // const response = yield axios.get("/api/tasks");
-    const response = yield call(axios.get("/api/tasks"));
-    //is it fetchTasks.data or fetchTasks?
-    console.log("get all: aka response", response);
-    console.log("this is response.data:", response.data);
+    const response = yield call(() => axios.get("/api/tasks"));
 
-    const tasks = response.data;
-
-    yield put({ type: "SET_TASKS", payload: tasks });
+    yield put({ type: "SET_TASKS", payload: response.data });
+    console.log('this is the response data in fetch all tasks generator function', response.data)
   } catch (error) {
-    console.log("get all error", error);
+    console.log("error fetching tasks", error);
   }
 }
 
-
-
-function* fetchAllTasksSaga() {
-  yield takeLatest("FETCH_TASKS", fetchAllTasks);
+function* yieldSaga() {
+  yield takeEvery("FETCH_TASKS", fetchAllTasks);
 }
 
-export default fetchAllTasksSaga;
+export default yieldSaga;
+
