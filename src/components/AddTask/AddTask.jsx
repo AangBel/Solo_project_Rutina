@@ -19,15 +19,15 @@ const AddTask = () => {
   const history = useHistory();
   let dispatch = useDispatch();
 
-//we don't want to use useState bc this is for local shenanigans... or do we?
+  //we don't want to use useState bc this is for local shenanigans... or do we?
   const [taskName, setTaskName] = useState([]);
   const [taskTimeStart, setTaskTimeStart] = useState([]);
   const [taskTimeEnd, setTaskTimeEnd] = useState([]);
 
-
   function addTaskEvent(event) {
     event.preventDefault();
-    
+    // let dispatch = useDispatch();
+
     console.log("in the addTaskEvent function");
     const taskConst = {
       task_name: taskName,
@@ -74,7 +74,6 @@ const AddTask = () => {
               type="datetime-local"
               size="small"
               onChange={(e) => setTaskTimeEnd(e.target.value)}
-
             />
 
             <Stack
@@ -97,5 +96,5 @@ const AddTask = () => {
       </Box>
     </div>
   );
-}
+};
 export default AddTask;

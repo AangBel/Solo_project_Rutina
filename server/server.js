@@ -22,6 +22,8 @@ app.use(sessionMiddleware);
 app.use(passport.initialize());
 app.use(passport.session());
 
+// This is the question - /
+
 /* Routes */
 app.use("/api/user", userRouter);
 //would it be '/api/tasks' or just tasks?

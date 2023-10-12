@@ -1,9 +1,12 @@
 import axios from "axios";
-import fetchAllTasks from "./fetchAllTasksSaga";
 import { put, takeEvery } from "redux-saga/effects";
+import { useDispatch } from "react-redux";
+
 
 function* addTaskSagaFn(action) {
   const payload = action.payload;
+  const dispatch = useDispatch();
+
   console.log("this is payload", payload);
   console.log("this is task name", payload.task_name);
   console.log("this is payload.taskTimeStart", payload.taskTimeStart);
@@ -15,7 +18,8 @@ function* addTaskSagaFn(action) {
     yield axios.post("/api/tasks", newRoutine);
 
     //not sure about this one!
-    yield put(fetchAllTasks());
+    // yield put(fetchAllTasks());
+    yield dispatch({ type: "FETCH_TASKS" });
 
     // update the store with the new task
     //   yield fetchAllTasks;

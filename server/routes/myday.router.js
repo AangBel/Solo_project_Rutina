@@ -11,27 +11,31 @@ const router = express.Router();
 /**
  * GET route
  */
-router.get('/api/tasks', rejectUnauthenticated, (req, res) => {
-  const query =  `
+router.get("/", rejectUnauthenticated, (req, res) => {
+  const query = `
   SELECT * FROM Routines_1_Basic`;
-  pool.query(query)
-  .then((result)=>{
-    console.log('this is result.rows', result.rows);
-    // console.log('this is result.rows', req.user);
-    res.send(result.rows);
-    // res.send(req.user);
-  })
-  .catch((err) => {
-    console.log("error in GET all Tasks", err);
-    res.sendStatus(500);
-  });
+  pool
+    .query(query)
+    .then((result) => {
+      console.log("this is result.rows", result.rows);
+      // console.log('this is result.rows', req.user);
+      res.send(result.rows);
+      // res.send(req.user);
+    })
+    .catch((err) => {
+      console.log("error in GET all Tasks", err);
+      res.sendStatus(500);
+    });
 });
 
 /**
  * POST route
  */
 // is the url "/api/tasks" or "/"?
-router.post("/api/tasks", rejectUnauthenticated, (req, res) => {
+
+// GET /api/tasks
+
+router.post("/", rejectUnauthenticated, (req, res) => {
   console.log("this is req body", req.body);
   console.log("this is req body payload", req.body.payload);
 
@@ -42,8 +46,9 @@ router.post("/api/tasks", rejectUnauthenticated, (req, res) => {
     VALUES ($1, $2, $3, $4, $5)
   `;
 
+
   const taskValues = [
-    hacer.taskName,
+    hacer.task_name,
     hacer.task_time_start,
     hacer.task_time_end,
     hacer.status,
@@ -57,7 +62,7 @@ router.post("/api/tasks", rejectUnauthenticated, (req, res) => {
       res.sendStatus(201);
     })
     .catch((error) => {
-      console.log('error adding task', error);
+      console.log("error adding task", error);
       res.sendStatus(500);
     });
 });
