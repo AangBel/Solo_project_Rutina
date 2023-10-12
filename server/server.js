@@ -25,8 +25,9 @@ app.use(passport.session());
 /* Routes */
 app.use("/api/user", userRouter);
 //would it be '/api/tasks' or just tasks?
+//i think it would be  api bc im understanding that redux saga is an api and im using sagas so it might be /api?
 // app.use('/tasks', myDayRouter);
-app.use("/tasks", myDayRouter);
+app.use("/api/tasks", myDayRouter);
 
 // Serve static files
 app.use(express.static("build"));

@@ -11,16 +11,15 @@ const router = express.Router();
 /**
  * GET route
  */
-router.get('/tasks', rejectUnauthenticated, (req, res) => {
-  // TODO - not entirely sure about whether the userID = ($1) syntax is correct
+router.get('/api/tasks', rejectUnauthenticated, (req, res) => {
   const query =  `
   SELECT * FROM Routines_1_Basic`;
   pool.query(query)
   .then((result)=>{
-    // console.log('this is result.rows', result.rows);
-    console.log('this is result.rows', req.user);
-
-    res.send(req.user);
+    console.log('this is result.rows', result.rows);
+    // console.log('this is result.rows', req.user);
+    res.send(result.rows);
+    // res.send(req.user);
   })
   .catch((err) => {
     console.log("error in GET all Tasks", err);
@@ -32,7 +31,7 @@ router.get('/tasks', rejectUnauthenticated, (req, res) => {
  * POST route
  */
 // is the url "/api/tasks" or "/"?
-router.post("/", (req, res) => {
+router.post("/api/tasks", rejectUnauthenticated, (req, res) => {
   console.log("this is req body", req.body);
   console.log("this is req body payload", req.body.payload);
 
@@ -43,19 +42,22 @@ router.post("/", (req, res) => {
     VALUES ($1, $2, $3, $4, $5)
   `;
 
+  const taskValues = [
+    hacer.taskName,
+    hacer.task_time_start,
+    hacer.task_time_end,
+    hacer.status,
+    hacer.userId,
+  ];
+
   pool
-    .query(insertNewTask, [
-      hacer.taskName,
-      hacer.task_time_start,
-      hacer.task_time_end,
-      hacer.status,
-      hacer.userId,
-    ])
+    .query(insertNewTask, taskValues)
     .then((result) => {
       console.log("this is the result under the router.post", result);
+      res.sendStatus(201);
     })
-    .catch((err) => {
-      console.log(err);
+    .catch((error) => {
+      console.log('error adding task', error);
       res.sendStatus(500);
     });
 });

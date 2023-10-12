@@ -12,7 +12,13 @@ import {
   Grid,
   CardActionArea,
   CardContent,
+  List,
+  ListItem,
+  ListItemText,
 } from "@mui/material";
+
+import store from "../../redux/store";
+
 
 // import "./MyDay.css";
 import { useHistory } from "react-router-dom";
@@ -28,10 +34,11 @@ export default function MyDay() {
   console.log("this is the taskStore", taskStore);
 
   useEffect(() => {
-    console.log("in useEffect");
+    // console.log("in useEffect");
     //OR
     // const action = { type: "GET_ZOO_ANIMALS" }; instead of dispatch get tasks
-    dispatch({ type: "GET_TASKS" });
+    // const action = {type: "GET_TASKS"}
+    dispatch({ type: "FETCH_TASKS" });
   }, []);
 
   function AddTaskOnClick() {
@@ -57,18 +64,29 @@ export default function MyDay() {
       <Box style={{ marginBottom: "90px", flexGrow: 1 }}>
         <section className="tasksClass">
           <Grid>
-            <Card>
-              <CardContent>
-                {/* {taskStore.map((task) => (
-                  <div key={task.id}>
-                    <p>{task.task_name}</p>
-                    <p>{task.task_time_start}</p>
-                    <p>{task.task_time_end}</p>
-                    <p>{task.status}</p>
-                  </div>
-                ))} */}
-              </CardContent>
-            </Card>
+          <div>
+      {taskStore.map((task) => (
+        <Card key={task.id} style={{ backgroundColor: "#f0f0f0", marginBottom: "16px" }}>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              <List>
+                <ListItem>
+                  <ListItemText
+                    primary={task.task_name}
+                    secondary={`Start Time: ${task.task_time_start}`}
+                  />
+                </ListItem>
+                <ListItem>
+                  <ListItemText
+                    secondary={`End Time: ${task.task_time_end}`}
+                  />
+                </ListItem>
+              </List>
+            </Typography>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
           </Grid>
         </section>
       </Box>

@@ -14,18 +14,20 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom/";
 
-export default function AddTask() {
+const AddTask = () => {
   console.log("in the MyDay function");
-
+  const history = useHistory();
   let dispatch = useDispatch();
 
+//we don't want to use useState bc this is for local shenanigans... or do we?
   const [taskName, setTaskName] = useState([]);
   const [taskTimeStart, setTaskTimeStart] = useState([]);
   const [taskTimeEnd, setTaskTimeEnd] = useState([]);
 
-  const history = useHistory();
 
-  function addTaskEvent() {
+  function addTaskEvent(event) {
+    event.preventDefault();
+    
     console.log("in the addTaskEvent function");
     const taskConst = {
       task_name: taskName,
@@ -96,3 +98,4 @@ export default function AddTask() {
     </div>
   );
 }
+export default AddTask;

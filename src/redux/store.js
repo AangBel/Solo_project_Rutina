@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import logger from 'redux-logger';
+import fetchAllTasks from './sagas/fetchAllTasksSaga';
 
 import rootReducer from './reducers/_root.reducer'; // imports ./redux/reducers/index.js
 import rootSaga from './sagas/_root.saga'; // imports ./redux/sagas/index.js
@@ -17,14 +18,14 @@ const middlewareList = process.env.NODE_ENV === 'development' ?
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // Used to store
-// const taskStore = (state = [], action) => {
-//   switch (action.type) {
-//     case "SET_TASKS":
-//       return action.payload;
-//     default:
-//       return state;
-//   }
-// };
+const taskStore = (state = [], action) => {
+  switch (action.type) {
+    case "SET_TASKS":
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
 //this is what is exported to the index.js....
 const store = createStore(
