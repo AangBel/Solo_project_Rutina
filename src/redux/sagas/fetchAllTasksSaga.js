@@ -1,31 +1,24 @@
 import axios from "axios";
 import { put, takeLatest } from "redux-saga/effects";
 
-// export default function* fetchAllTasks(action) {
-//   // get all tasks from the DB
-//   try {
-//     const fetchTasks = yield axios.get("/api/tasks");
-//     //is it fetchTasks.data or fetchTasks?
-//     console.log("get all: aka fetchTasks.data", fetchTasks.data);
-//     console.log("get fetchTasks:", fetchTasks);
+function* fetchAllTasks(action) {
+  // get all tasks from the DB
+  try {
+    const response = yield axios.get("/api/tasks");
+    //is it fetchTasks.data or fetchTasks?
+    console.log("get all: aka response", response);
+    console.log("this is response.data:", response.data);
 
-//     yield put({ type: "SET_TASKS", payload: fetchTasks.data });
-//   } catch {
-//     console.log("get all error");
-//   }
-// }
-
-function* fetchAllTasks(action){
-    try{
-        yield axios.get('/api/tasks', action.payload);
-        yield put({ type: 'SET_TASKS'});
-    } catch (error) {
-        console.log('error with get under fetch all tasks', error);
-    }
+    yield put({ type: "SET_TASKS", payload: response.data });
+  } catch (error) {
+    console.log("get all error");
+  }
 }
 
-function* yieldSaga(){
-    yield takeLatest('SET_TASKS', fetchAllTasks);
+
+
+function* yieldSaga() {
+  yield takeLatest("GET_TASKS", fetchAllTasks);
 }
 
 export default yieldSaga;

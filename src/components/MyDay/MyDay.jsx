@@ -14,6 +14,7 @@ import {
   CardContent,
 } from "@mui/material";
 
+import store from "../../redux/store";
 // import "./MyDay.css";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
