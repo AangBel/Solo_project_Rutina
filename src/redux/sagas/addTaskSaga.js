@@ -11,8 +11,12 @@ function* addTaskSagaFn(action) {
   console.log("this is action.payload", action.payload);
 
   console.log("this is payload.task name", payload.task_name);
-  console.log("this is payload.taskTimeStart", payload.taskTimeStart);
-  console.log("this is payload.taskTimeEnd", payload.taskTimeEnd);
+  // console.log("this is payload.taskTimeStart", payload.taskTimeStart);      //incorrect end tag
+  console.log("this is payload.taskTimeStart", payload.task_time_start);
+
+  // console.log("this is payload.taskTimeEnd", payload.taskTimeEnd); //incorrect end tag
+  console.log("this is payload.taskTimeEnd", payload.task_time_end);
+
 
   try {
     //CHANGED FROM NEW ROUTINE TO PAYLOAD BC CONCERNED IT WAS RE-DECLARING IT AND MESSING THINGS UP
