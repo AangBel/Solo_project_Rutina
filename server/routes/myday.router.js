@@ -17,7 +17,9 @@ router.get('/tasks', rejectUnauthenticated, (req, res) => {
   SELECT * FROM Routines_1_Basic`;
   pool.query(query)
   .then((result)=>{
-    console.log('this is result.rows', result.rows);
+    // console.log('this is result.rows', result.rows);
+    console.log('this is result.rows', req.user);
+
     res.send(req.user);
   })
   .catch((err) => {
