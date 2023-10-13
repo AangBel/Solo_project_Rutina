@@ -29,9 +29,21 @@ export default function MyDay() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [tasks, setTasks] = useState([]);
+  const [task, setTasks] = useState([]);
   // const taskStore = useSelector((store) => store.taskStore);
   // console.log("this is the taskStore", taskStore);
+
+
+  // const tasksSelect = useSelector((store)=> store.tasksSelect);
+  const tasks = useSelector((state)=> state.taskStore);
+  console.log('this is tasks', tasks);
+
+
+  // const tasksSelect = useSelector((state)=> state.tasksSelect);
+  // console.log('this is tasks Select', tasksSelect);
+
+  // console.log('this is set tasks', setTasks);
+
 
   
   useEffect(() => {
@@ -42,10 +54,14 @@ export default function MyDay() {
 
   }, []);
 
+  const handleTaskSelect = (task) => {
+    dispatch({ type: "SET_TASKS_SELECT", payload: task });
+  };
 
 
 
   function AddTaskOnClick() {
+    handleTaskSelect();
     console.log("clicked add task");
     history.push("/AddTask");
   }

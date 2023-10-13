@@ -9,6 +9,8 @@ import yieldSaga from './fetchAllTasksSaga';
 import fetchAllTasksSaga from './fetchAllTasksSaga';
 // import taskStore from '../taskStore';
 import taskReducer from '../reducers/taskReducer';
+import selectReducer from '../reducers/select.reducer';
+
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
 // This is imported in index.js as rootSaga
@@ -28,5 +30,6 @@ export default function* rootSaga() {
     // taskStore,//this breaks the fetch user as it logs me out and wont let me login if i add ()
     yieldSaga(),
     taskReducer,
+    selectReducer,
   ]);
 }
