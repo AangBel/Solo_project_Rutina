@@ -29,14 +29,17 @@ export default function MyDay() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [task, setTasks] = useState([]);
+  // const [task, setTasks] = useState([]);
+  // console.log("this is task", task);
+
+  const taskStore = useSelector((state) => state.taskStore);
   // const taskStore = useSelector((store) => store.taskStore);
   // console.log("this is the taskStore", taskStore);
 
 
   // const tasksSelect = useSelector((store)=> store.tasksSelect);
-  const tasks = useSelector((state)=> state.taskStore);
-  console.log('this is tasks', tasks);
+  // const routine = useSelector((state)=> state.taskStore);
+  // console.log('this is routine', routine);
 
 
   // const tasksSelect = useSelector((state)=> state.tasksSelect);
@@ -88,8 +91,8 @@ export default function MyDay() {
         <section className="tasksClass">
           <Grid>
             <div>
-              {/* {taskStore.map((task) => ( */}
-              {tasks.map((task)=>(
+              {/* {routine.map((task)=>( */}
+              {taskStore.map((task) => (
                 
                 <Card
                   key={task.id}
