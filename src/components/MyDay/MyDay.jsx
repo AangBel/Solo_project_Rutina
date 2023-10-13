@@ -33,10 +33,13 @@ export default function MyDay() {
   // const taskStore = useSelector((store) => store.taskStore);
   // console.log("this is the taskStore", taskStore);
 
+  
   useEffect(() => {
     // console.log("in useEffect");
     //OR
+    // dispatch({ type: "FETCH_TASKS" , payload: tasks});
     dispatch({ type: "FETCH_TASKS" });
+
   }, []);
 
 

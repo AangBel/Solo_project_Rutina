@@ -17,7 +17,7 @@ const router = express.Router();
 // WHERE "userId" = $1
 router.get("/", rejectUnauthenticated, (req, res) => {
   const query = `
-  SELECT * FROM Routines_1_Basic ORDER BY id ASC`;
+  SELECT * FROM routines ORDER BY id ASC`;
 
   pool
     .query(query)
@@ -50,7 +50,7 @@ router.post("/", rejectUnauthenticated, (req, res) => {
   const hacer = req.body;
 
   const insertNewTask = `
-  INSERT INTO "Routines_1_Basic"("task_name", "task_time_start", "task_time_end", "status", "userId")
+  INSERT INTO "routines"("task_name", "task_time_start", "task_time_end", "status", "userId")
     VALUES ($1, $2, $3, $4, $5)
   `;
 
