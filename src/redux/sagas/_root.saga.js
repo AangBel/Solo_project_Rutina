@@ -10,6 +10,7 @@ import fetchAllTasksSaga from './fetchAllTasksSaga';
 // import taskStore from '../taskStore';
 import taskReducer from '../reducers/taskReducer';
 import selectReducer from '../reducers/select.reducer';
+import yieldEdit from './editTaskSaga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -31,5 +32,6 @@ export default function* rootSaga() {
     yieldSaga(),
     taskReducer,
     selectReducer,
+    yieldEdit
   ]);
 }

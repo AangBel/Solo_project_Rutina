@@ -25,6 +25,23 @@ export default function MyDay() {
     history.push("/AddTask");
   }
 
+  
+  function editTaskOnClick(task) {
+    console.log("clicked to edit task");
+    handleEditTask(task);
+  }
+  const handleEditTask = (task) => {
+    dispatch({ type: "EDIT_TASK", payload: task });
+    console.log('this is the task in handleEdit task', task);
+    // console.log('this is the task id in handleEdit task', task.id);
+
+  };
+  // function editTaskOnClick() {
+  //   const taskToEdit = taskStore.find((task) => task.id === taskStore.id);
+  //   handleEditTask(taskToEdit);
+  //   console.log("clicked to edit task");
+  // }
+
   return (
     <>
       <header style={{ background: "#CEE9f1" }}>
@@ -50,6 +67,7 @@ export default function MyDay() {
                       <li>{`Start Time: ${task.task_time_start}`}</li>
                       <li>{`End Time: ${task.task_time_end}`}</li>
                     </ul>
+                    <button onClick={() => editTaskOnClick(task.id)}>✏️</button>
                   </div>
                 </div>
               </div>

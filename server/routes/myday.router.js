@@ -37,9 +37,6 @@ router.get("/", rejectUnauthenticated, (req, res) => {
 /**
  * POST route
  */
-// is the url "/api/tasks" or "/"?
-
-// GET /api/tasks
 
 router.post("/", rejectUnauthenticated, (req, res) => {
   console.log("this is req body in router.post under myDay router", req.body);
@@ -75,3 +72,32 @@ router.post("/", rejectUnauthenticated, (req, res) => {
 });
 
 module.exports = router;
+
+/**
+ * PUT route
+ */
+//maybe put in id with- ${}?
+//(`/api/tasks/${task.id}`)??
+router.put("/api/tasks/:id", (req, res) => {
+  const taskId = req.params.id;
+  console.log('this should be the task id:', taskId);
+
+  //we want to be able to update the task_name and the time ...
+  const updateTaskName = req.body.task_name;
+  console.log('this should be the updated task name?', updateTaskName);
+
+  let mySqlQuery = `
+    UPDATE routines SET task_name = $1 WHERE id = $2
+  `;
+
+  pool
+  .query(mySqlQuery, [updateTaskName, taskId])
+  .then((result) => {
+    console.log(`task id of task who's name was updated: ${taskId}`);
+    res.sendStatus(200);
+  })
+  .catch((error) => {
+    console.log('error updating the task name', error);
+    res.sendStatus(500);
+  })
+})
