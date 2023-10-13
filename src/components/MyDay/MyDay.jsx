@@ -30,30 +30,25 @@ export default function MyDay() {
       <header style={{ background: "#CEE9f1" }}>
         <div className="toolbar">
           <button className="custom-button">Today</button>
-          <button onClick={AddTaskOnClick}>Add Task</button>
+          <button className="custom-button" onClick={AddTaskOnClick}>
+            Add Task
+          </button>
         </div>
       </header>
 
       <div style={{ marginBottom: "90px", flexGrow: 1 }}>
         <section className="tasksClass">
-          <div>
+          <div className="flip-horizontal-bottom">
             {taskStore.map((task) => (
-              <div
-                key={task.id}
-                className="task-card"
-              >
+              <div key={task.id} className="task-card">
                 <div
                   style={{ backgroundColor: "#f0f0f0", marginBottom: "16px" }}
                 >
                   <div className="card-content">
                     <h5>{task.task_name}</h5>
                     <ul>
-                      <li>
-                        {`Start Time: ${task.task_time_start}`}
-                      </li>
-                      <li>
-                        {`End Time: ${task.task_time_end}`}
-                      </li>
+                      <li>{`Start Time: ${task.task_time_start}`}</li>
+                      <li>{`End Time: ${task.task_time_end}`}</li>
                     </ul>
                   </div>
                 </div>

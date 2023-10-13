@@ -1,34 +1,21 @@
-import React from "react";
-import {
-  AppBar,
-  Box,
-  Paper,
-  Stack,
-  Button,
-  Toolbar,
-  Input,
-  Typography,
-} from "@mui/material";
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom/";
+import { useHistory } from "react-router-dom";
+
+import "./AddTask.css"; // Replace with the path to your CSS file
 
 const AddTask = () => {
   console.log("in the MyDay function");
   const history = useHistory();
-  let dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  //we don't want to use useState bc this is for local shenanigans... or do we?
-  const [taskName, setTaskName] = useState([]);
-  const [taskTimeStart, setTaskTimeStart] = useState([]);
-  const [taskTimeEnd, setTaskTimeEnd] = useState([]);
+  const [taskName, setTaskName] = useState("");
+  const [taskTimeStart, setTaskTimeStart] = useState("");
+  const [taskTimeEnd, setTaskTimeEnd] = useState("");
 
   function addTaskEvent(event) {
     event.preventDefault();
-    // let dispatch = useDispatch();
 
-    console.log("in the addTaskEvent function");
     const taskConst = {
       task_name: taskName,
       task_time_start: taskTimeStart,
@@ -42,59 +29,42 @@ const AddTask = () => {
     });
     history.push("/MyDay");
   }
+
   return (
     <div className="container">
-      <Box sx={{ padding: 2, width: 500, maxWidth: "100%" }}>
-        <Paper elevation={8} sx={{ width: "800px" }}>
-          <Box sx={{ padding: 2 }}>
-            <Typography variant="h6">Task Name</Typography>
+      <div className="paper">
+        <div className="content">
+          <h6>Task Name</h6>
+          <input
+            id="taskNameInput"
+            type="text"
+            onChange={(e) => setTaskName(e.target.value)}
+          />
 
-            <Input
-              label="Task Name"
-              id="taskNameInput"
-              variant="outlined"
-              type="text"
-              size="normal"
-              onChange={(e) => setTaskName(e.target.value)}
-            />
+          <h6>Start Time:</h6>
+          <input
+            id="startTimeInput"
+            type="datetime-local"
+            onChange={(e) => setTaskTimeStart(e.target.value)}
+          />
 
-            <Typography variant="h6">Start Time:</Typography>
-            <Input
-              id="startTimeInput"
-              variant="outlined"
-              type="datetime-local"
-              size="small"
-              onChange={(e) => setTaskTimeStart(e.target.value)}
-            />
+          <h6>End Time:</h6>
+          <input
+            id="endTimeInput"
+            type="datetime-local"
+            onChange={(e) => setTaskTimeEnd(e.target.value)}
+          />
 
-            <Typography variant="h6">End Time:</Typography>
-            <Input
-              id="endTimeInput"
-              variant="outlined"
-              type="datetime-local"
-              size="small"
-              onChange={(e) => setTaskTimeEnd(e.target.value)}
-            />
-
-            <Stack
-              direction="row"
-              justifyContent="space-between"
-              alignItems="baseline"
-              spacing={1}
-            >
-              <Button
-                className="AddTaskButton"
-                variant="contained"
-                onClick={addTaskEvent}
-              >
-                Add Task To Routine
-              </Button>
-              <Button variant="contained">Cancel</Button>
-            </Stack>
-          </Box>
-        </Paper>
-      </Box>
+          <div className="button-container">
+            <button className="AddTaskButton" onClick={addTaskEvent}>
+              Add Task To Routine
+            </button>
+            <button>Cancel</button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
+
 export default AddTask;
