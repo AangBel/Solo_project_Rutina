@@ -32,8 +32,15 @@ export default function MyDay() {
   const handleEditTask = (task) => {
     dispatch({ type: "EDIT_TASK", payload: task });
     console.log("this is the task in handleEdit task", task);
+    console.log("this is the task in handleEdit task.id", task.id);
+
   };
-  
+
+  function deleteTaskOnClick(task){
+    console.log('clicked the delete button');
+    dispatch({ type: "DELETE_TASK", payload: task });
+  }
+
   return (
     <>
       <header style={{ background: "#CEE9f1" }}>
@@ -59,7 +66,8 @@ export default function MyDay() {
                       <li>{`Start Time: ${task.task_time_start}`}</li>
                       <li>{`End Time: ${task.task_time_end}`}</li>
                     </ul>
-                    <button onClick={() => editTaskOnClick(task.id)}>✏️</button>
+                    <button onClick={() => editTaskOnClick(task.id)}>EDIT</button>
+                    <button onClick={() => deleteTaskOnClick(task.id)}>DELETE</button>
                   </div>
                 </div>
               </div>

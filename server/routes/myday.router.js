@@ -71,14 +71,13 @@ router.post("/", rejectUnauthenticated, (req, res) => {
     });
 });
 
-
-
 /**
  * PUT route
  */
 //maybe put in id with- ${}?
 //(`/api/tasks/${task.id}`)??
-router.put("/api/tasks/:id", (req, res) => {
+// router.put("/api/tasks/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   const taskId = req.params.id;
   console.log("this should be the task id:", taskId);
 
@@ -102,8 +101,34 @@ router.put("/api/tasks/:id", (req, res) => {
     });
 });
 
-module.exports = router;
+/**
+ * DELETE route
+ */
+//or change the url?
+// router.delete(`${idToDelete}`, (req, res) => {
+router.delete("/:id", (req, res) => {
+  let idToDelete = req.params.id;
+  console.log("this is req.params.id", req.params.id);
+  console.log("this is the req.params.id variable vs(idToDelete)", idToDelete);
+  let mySqlQuery = `
+      DELETE FROM "routines" WHERE id = $1;
+      `;
+  pool
+    .query(mySqlQuery, [idToDelete])
+    .then(() => {
+      console.log(
+        "delete request successful- this is the id that was set to be deleted",
+        idToDelete
+      );
+      res.sendStatus(202);
+    })
+    .catch((err) => {
+      console.log(`delete request failed: ${idToDelete}`, err);
+      res.sendStatus(500);
+    });
+});
 
+module.exports = router;
 
 // router.put("/api/tasks/:id", (req, res) => {
 //   const taskId = req.params.id;
