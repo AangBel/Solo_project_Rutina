@@ -4,7 +4,9 @@ import { useHistory } from "react-router-dom";
 import store from "../../redux/store";
 import "./MyDay.css";
 
-export default function MyDay() {
+import TaskCard from "../TaskCard/TaskCard";
+
+export default function MyDay({ formattedDate, formattedTime }) {
   console.log("in the MyDay function");
   const dispatch = useDispatch();
   const history = useHistory();
@@ -33,11 +35,10 @@ export default function MyDay() {
     dispatch({ type: "EDIT_TASK", payload: task });
     console.log("this is the task in handleEdit task", task);
     console.log("this is the task in handleEdit task.id", task.id);
-
   };
 
-  function deleteTaskOnClick(task){
-    console.log('clicked the delete button');
+  function deleteTaskOnClick(task) {
+    console.log("clicked the delete button");
     dispatch({ type: "DELETE_TASK", payload: task });
   }
 
@@ -66,8 +67,13 @@ export default function MyDay() {
                       <li>{`Start Time: ${task.task_time_start}`}</li>
                       <li>{`End Time: ${task.task_time_end}`}</li>
                     </ul>
-                    <button onClick={() => editTaskOnClick(task.id)}>EDIT</button>
-                    <button onClick={() => deleteTaskOnClick(task.id)}>DELETE</button>
+                
+                    <button onClick={() => editTaskOnClick(task.id)}>
+                      EDIT
+                    </button>
+                    <button onClick={() => deleteTaskOnClick(task.id)}>
+                      DELETE
+                    </button>
                     <button>COMPLETE</button>
                   </div>
                 </div>

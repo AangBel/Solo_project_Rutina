@@ -16,6 +16,7 @@ function* addTaskSagaFn(action) {
 
   // console.log("this is payload.taskTimeEnd", payload.taskTimeEnd); //incorrect end tag
   console.log("this is payload.taskTimeEnd", payload.task_time_end);
+  console.log(typeof(payload.task_time_end));
 
 
   try {

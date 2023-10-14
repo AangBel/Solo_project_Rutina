@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-
-import "./AddTask.css"; // Replace with the path to your CSS file
+import "./AddTask.css";
 
 const AddTask = () => {
-  console.log("in the MyDay function");
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -13,16 +11,35 @@ const AddTask = () => {
   const [taskTimeStart, setTaskTimeStart] = useState("");
   const [taskTimeEnd, setTaskTimeEnd] = useState("");
 
+  // Function to format a date object as a time string in 12-hour format
+  const formatTime = (date) => {
+    const hours = date.getHours();
+    const minutes = date.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes.toString().padStart(2, "0");
+    return `${formattedHours}:${formattedMinutes} ${ampm}`;
+  };
+
   function addTaskEvent(event) {
     event.preventDefault();
 
+    // Convert the input values to Date objects
+    const startTime = new Date(taskTimeStart);
+    const endTime = new Date(taskTimeEnd);
+
+    // Format the time in 12-hour format
+    const formattedStartTime = formatTime(startTime);
+    const formattedEndTime = formatTime(endTime);
+
     const taskConst = {
       task_name: taskName,
-      task_time_start: taskTimeStart,
-      task_time_end: taskTimeEnd,
+      task_time_start: formattedStartTime,
+      task_time_end: formattedEndTime,
       status: false,
       userId: 1,
     };
+
     dispatch({
       type: "ADD_TASK",
       payload: taskConst,
