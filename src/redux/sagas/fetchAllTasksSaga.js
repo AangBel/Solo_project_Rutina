@@ -30,7 +30,7 @@ function* fetchAllTasks() {
     const response = yield call(() => axios.get("/api/tasks"));
 
     yield put({ type: "SET_TASKS", payload: response.data });
-    console.log('this is the response data in fetch all tasks generator function', response.data);
+    // console.log('this is the response data in fetch all tasks generator function', response.data);
     // console.log('this is the response data.data in fetch all tasks generator function', response.data.data);
 
   } catch (error) {
