@@ -68,6 +68,7 @@ export default function MyDay() {
                     </ul>
                     <button onClick={() => editTaskOnClick(task.id)}>EDIT</button>
                     <button onClick={() => deleteTaskOnClick(task.id)}>DELETE</button>
+                    <button>COMPLETE</button>
                   </div>
                 </div>
               </div>

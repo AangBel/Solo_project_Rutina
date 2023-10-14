@@ -30,6 +30,10 @@ const AddTask = () => {
     history.push("/MyDay");
   }
 
+  function cancelAddTask() {
+    history.push("/MyDay");
+  }
+
   return (
     <div className="container">
       <div className="paper">
@@ -59,7 +63,7 @@ const AddTask = () => {
             <button className="AddTaskButton" onClick={addTaskEvent}>
               Add Task To Routine
             </button>
-            <button>Cancel</button>
+            <button onClick={cancelAddTask}>Cancel</button>
           </div>
         </div>
       </div>

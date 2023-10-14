@@ -20,9 +20,9 @@ import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
 import RegisterPage from "../RegisterPage/RegisterPage";
 
-
 import "./App.css";
 import AddTask from "../AddTask/AddTask";
+import RightNow from "../../RightNow/RightNow";
 
 function App() {
   const dispatch = useDispatch();
@@ -71,6 +71,10 @@ function App() {
             <MyDay />
           </ProtectedRoute>
 
+          <ProtectedRoute exact path="/RightNow">
+            <RightNow />
+          </ProtectedRoute>
+
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
@@ -105,14 +109,16 @@ function App() {
           </Route>
 
           <Route exact path="/AddTask">
-
-            <AddTask>
-              
-            </AddTask>
+            <AddTask></AddTask>
           </Route>
-          {/* <Route exact path="/MyDay">
+          
+          <Route exact path="/MyDay">
             <MyDay />
-          </Route> */}
+          </Route>
+
+          <Route exact path="/RightNow">
+            <RightNow />
+          </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
