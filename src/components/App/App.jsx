@@ -23,6 +23,7 @@ import RegisterPage from "../RegisterPage/RegisterPage";
 import "./App.css";
 import AddTask from "../AddTask/AddTask";
 import RightNow from "../../RightNow/RightNow";
+import AddBell from "../AddBell/AddBell";
 
 function App() {
   const dispatch = useDispatch();
@@ -111,7 +112,11 @@ function App() {
           <Route exact path="/AddTask">
             <AddTask></AddTask>
           </Route>
-          
+
+          <Route exact path="/AddBell">
+            <AddBell />
+          </Route>
+
           <Route exact path="/MyDay">
             <MyDay />
           </Route>
