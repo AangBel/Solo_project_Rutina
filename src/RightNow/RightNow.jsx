@@ -17,9 +17,11 @@ export default function RightNow() {
         const task = taskStore[i];
         const startTime = new Date(task.startTime);
         console.log('this is startTime', startTime);
+        console.log('this is task.task_time_start:', task.task_time_start);
 
         const endTime = new Date(task.endTime);
         console.log('this is endTime', endTime); 
+        console.log('this is task.task_time_end:', task.task_time_end);
         
         if (now >= startTime && now <= endTime) {
             setActiveTask(task);
