@@ -1,28 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-
-
 
 function Bells() {
   console.log("in the bells function");
   const history = useHistory();
   const dispatch = useDispatch();
 
+  const bellStore = useSelector((state) => state.bellStore);
+  console.log('this is the bellStore', bellStore);
+
+  useEffect(() => {
+    dispatch({ type: "FETCH_BELLS" });
+  }, []);
+
   function addBellOnClick() {
-    //handleTaskSelect();
     console.log("clicked to add Bell");
     history.push("/AddBell");
   }
+
+  function deleteBellOnClick(bell) {
+    console.log('the delete bell button has been clicked');
+    dispatch({ type: "DELETE_BELL_REQUEST", payload: bell });
+  }
+
   return (
     <div className="container">
+      <p>This about page is for anyone to read!</p>
+      <p>This is now the Bells page</p>
       <div className="card shadow">
-        <p>This about page is for anyone to read!</p>
-        <p>This is now the Bells page</p>
+        <div className="BellClassMap">
+          {bellStore.map((bell) => (
+            <div key={bell.id}>
+              <h5>{bell.bell_name}</h5>
+              <ul>
+                <li>{`Time: ${bell.time} `}</li>
+              </ul>
+            </div>
+          ))}
+        </div>
+        <button className="learn-more" onClick={addBellOnClick}>
+          Add Bell
+        </button>
       </div>
-      <button className="learn-more" onClick={addBellOnClick}>
-        Add Bell
-      </button>
     </div>
   );
 }

@@ -17,7 +17,7 @@ const AddBell = () => {
     const bellPackage = {
       timer_name: bellName,
     //   bell_start: bellStartTime,
-      bell_end: bellEndTime,
+      time: bellEndTime,
       status: false,
       userId: 1,
     };

@@ -19,9 +19,9 @@ router.get("/", (req, res) => {
 // POST route to add a new bell to the database
 router.post("/", (req, res) => {
   const newBell = req.body;
-  const queryText = `INSERT INTO "bells" ("timer_name", "time", "status")
-                                         VALUES ($1, $2, $3)`;
-  const queryValues = [newBell.timer_name, newBell.time, newBell.status];
+  const queryText = `INSERT INTO "bells" ("timer_name", "time", "status", "userId")
+                                         VALUES ($1, $2, $3, $4)`;
+  const queryValues = [newBell.timer_name, newBell.time, newBell.status, newBell.userId];
   pool
     .query(queryText, queryValues)
     .then(() => {
@@ -52,12 +52,13 @@ router.delete("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
   const bellId = req.params.id;
   const updatedBell = req.body;
-  const queryText = `UPDATE "bells" SET "timer_name" = $1, "time" = $2, "status" = $3
-                                         WHERE "id" = $4`;
+  const queryText = `UPDATE "bells" SET "timer_name" = $1, "time" = $2, "status" = $3, "userId" = $4,
+                                         WHERE "id" = $5`;
   const queryValues = [
     updatedBell.timer_name,
     updatedBell.time,
     updatedBell.status,
+    updatedBell.userId,
     bellId,
   ];
   pool
