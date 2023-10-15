@@ -18,6 +18,8 @@ export default function RightNow() {
 
     const now = new Date();
     console.log("this is now:", now);
+   let hours = now.getHours();
+   console.log('this is hours',hours);
 
     for (let i = 0; i < taskStore.length; i++) {
       const task = taskStore[i];
