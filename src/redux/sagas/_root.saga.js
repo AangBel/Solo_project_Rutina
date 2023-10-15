@@ -16,6 +16,7 @@ import yieldDelete from './deleteTaskSaga';
 import RightNow from '../../RightNow/RightNow';
 import addBellSaga from './addBellSaga';
 import deleteBellWatcher from './deleteBellSaga';
+import fetchAllBellsSaga from './fetchAllBellsSaga';
 
 
 // rootSaga is the primary saga.
@@ -43,5 +44,6 @@ export default function* rootSaga() {
     yieldDelete(),
     addBellSaga, //will this one require ()?
     deleteBellWatcher(), //is it correct for this one to have ( and run from the root?)
+    fetchAllBellsSaga,
   ]);
 }
