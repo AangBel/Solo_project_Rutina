@@ -8,7 +8,7 @@ const AddBell = () => {
   const dispatch = useDispatch();
 
   const [bellName, setBellName] = useState("");
-  const [bellStartTime, setBellStartTime] = useState("");
+//   const [bellStartTime, setBellStartTime] = useState("");
   const [bellEndTime, setBellEndTime] = useState("");
 
   function addBellEvent(event) {
@@ -16,7 +16,7 @@ const AddBell = () => {
 
     const bellPackage = {
       timer_name: bellName,
-      bell_start: bellStartTime,
+    //   bell_start: bellStartTime,
       bell_end: bellEndTime,
       status: false,
       userId: 1,
@@ -42,12 +42,12 @@ const AddBell = () => {
             onChange={(e) => setBellName(e.target.value)}
           />
 
-          <h6>Start Time:</h6>
+          {/* <h6>Start Time:</h6>
           <input
             id="startTimeInput"
             type="datetime-local"
             onChange={(e) => setBellStartTime(e.target.value)}
-          />
+          /> */}
 
           <h6>End Time:</h6>
           <input
