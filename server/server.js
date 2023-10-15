@@ -10,6 +10,7 @@ const passport = require("./strategies/user.strategy");
 // Route includes
 const userRouter = require("./routes/user.router");
 const myDayRouter = require("./routes/myday.router");
+const bellRouter = require("./routes/bells.router");
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -30,6 +31,9 @@ app.use("/api/user", userRouter);
 //i think it would be  api bc im understanding that redux saga is an api and im using sagas so it might be /api?
 // app.use('/tasks', myDayRouter);
 app.use("/api/tasks", myDayRouter);
+
+//would this url still be /api/?
+app.use('/api/bells', bellRouter);
 
 // Serve static files
 app.use(express.static("build"));
