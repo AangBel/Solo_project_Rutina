@@ -12,14 +12,21 @@ li{
 /* .tasksClass{
   font-family: "Gruppo", sans-serif;
 } */
+.toolbar{
+  padding: 20px;
+  background-color: white;
+
+}
 
 .card-content {
-  width: 100px;
+  width: auto;
+  border-radius: 10px;
+  padding: 10px;
 }
 /* ---------------- */
-.CardClassMap{
+/* .CardClassMap{
 
-}
+} */
 /* ----------------------------- */
 .card {
   width: auto;

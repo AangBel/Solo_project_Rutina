@@ -49,8 +49,8 @@ export default function MyDay() {
     <>
       <header style={{ background: "#CEE9f1" }}>
         <div className="toolbar">
-          <button className="blueButton">Today</button>
-          <button className="blueButton" onClick={AddTaskOnClick}>
+          {/* <button className="learn-more">Today</button> */}
+          <button className="learn-more" onClick={AddTaskOnClick}>
             Add Task
           </button>
         </div>
