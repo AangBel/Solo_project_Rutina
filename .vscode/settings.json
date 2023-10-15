@@ -23,5 +23,17 @@
     "hacer",
     "myday",
     "tailwindcss"
+  ],
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "database": "prime_app",
+      "name": "PostgreSQL 15",
+      "username": "angelica",
+      "password": ""
+    }
   ]
 }

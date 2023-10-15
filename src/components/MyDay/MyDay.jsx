@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import "./MyDay.css";
+import RightNow from "../../RightNow/RightNow";
 
 // import TaskCard from "../TaskCard/TaskCard";
 
@@ -57,6 +58,7 @@ export default function MyDay() {
 
       <div style={{ marginBottom: "90px", flexGrow: 1 }}>
         <section className="tasksClass">
+          <RightNow tasks={taskStore} />
           <div className="flip-horizontal-bottom">
             {taskStore.map((task) => (
               <div key={task.id} className="task-card">
