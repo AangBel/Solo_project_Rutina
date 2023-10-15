@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState } from "react";
+import moment from "moment";
 
 export default function RightNow() {
   console.log("in the right now fn");
   const taskStore = useSelector((state) => state.taskStore);
   console.log("this is task store in right now", taskStore);
-//   const dispatch = useDispatch();
+  //   const dispatch = useDispatch();
   const [activeTask, setActiveTask] = useState("");
 
   //   const handleTaskSelect = (task) => {
@@ -16,19 +17,22 @@ export default function RightNow() {
     // handleTaskSelect();
     console.log("hello from get current task");
 
+    const localTime = moment().format("YYYY-MM-DD"); // store localTime
+    const proposedDate = localTime + "T00:00:00.000Z";
+
     const now = new Date();
     console.log("this is now:", now);
-   let hours = now.getHours();
-   console.log('this is hours',hours);
+    let hours = now.getHours();
+    console.log("this is hours", hours);
 
     for (let i = 0; i < taskStore.length; i++) {
       const task = taskStore[i];
       const startTime = new Date(task.task_time_start);
-    //   console.log("this is startTime", startTime);
+      //   console.log("this is startTime", startTime);
       console.log("this is task.task_time_start:", task.task_time_start);
 
       const endTime = new Date(task.task_time_end);
-    //   console.log("this is endTime", endTime);
+      //   console.log("this is endTime", endTime);
       console.log("this is task.task_time_end:", task.task_time_end);
 
       if (now >= startTime && now <= endTime) {
@@ -38,7 +42,7 @@ export default function RightNow() {
     setActiveTask(null);
   };
 
-  setInterval(getCurrentTask, 60000);
+  //   setInterval(getCurrentTask, 60000);
 
   return (
     <div>

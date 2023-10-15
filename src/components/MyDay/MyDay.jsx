@@ -61,7 +61,7 @@ export default function MyDay() {
           <RightNow tasks={taskStore} />
           <div className="flip-horizontal-bottom">
             {taskStore.map((task) => (
-              <div key={task.id} className="task-card">
+              <div key={task.id} className="card shadow">
                 <div
                   style={{ backgroundColor: "#f0f0f0", marginBottom: "16px" }}
                 >
