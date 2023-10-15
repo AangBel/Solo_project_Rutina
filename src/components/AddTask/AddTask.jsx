@@ -65,14 +65,14 @@ const AddTask = () => {
           <h6>Start Time:</h6>
           <input
             id="startTimeInput"
-            type="time"
+            type="datetime-local"
             onChange={(e) => setTaskTimeStart(e.target.value)}
           />
 
           <h6>End Time:</h6>
           <input
             id="endTimeInput"
-            type="time"
+            type="datetime-local"
             onChange={(e) => setTaskTimeEnd(e.target.value)}
           />
 
