@@ -42,7 +42,7 @@ export default function* rootSaga() {
     yieldEdit,
     selectedTaskToEdit,// i wonder if this one would be one we call here- ()???
     yieldDelete(),
-    addBellSaga, //will this one require ()?
+    addBellSaga(), //will this one require ()?
     deleteBellWatcher(), //is it correct for this one to have ( and run from the root?)
     fetchAllBellsSaga,
   ]);

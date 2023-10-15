@@ -8,15 +8,15 @@ const AddBell = () => {
   const dispatch = useDispatch();
 
   const [bellName, setBellName] = useState("");
-//   const [bellStartTime, setBellStartTime] = useState("");
+  //   const [bellStartTime, setBellStartTime] = useState("");
   const [bellEndTime, setBellEndTime] = useState("");
 
   function addBellEvent(event) {
     event.preventDefault();
 
+    //   bell_start: bellStartTime,
     const bellPackage = {
       timer_name: bellName,
-    //   bell_start: bellStartTime,
       time: bellEndTime,
       status: false,
       userId: 1,
@@ -26,10 +26,16 @@ const AddBell = () => {
       type: "ADD_BELL",
       payload: bellPackage,
     });
+
+    console.log('this is from the addBell event function in add Bell ');
+    console.log('this is the bellPackage:', bellPackage);
+
     history.push("/Bells");
   }
-  function cancelAddBell(){
+
+  function cancelAddBell() {
     history.push("/Bells");
+    
   }
   return (
     <div className="container">
@@ -58,14 +64,14 @@ const AddBell = () => {
 
           <div className="button-container">
             <button className="AddTaskButton" onClick={addBellEvent}>
-              Add Bell 
+              Add Bell
             </button>
             <button onClick={cancelAddBell}>Cancel</button>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 export default AddBell;

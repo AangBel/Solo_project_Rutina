@@ -6,6 +6,8 @@ function* addBell(action) {
   //can i have more than one action.payload?
   const bellPayload = action.payload;
   console.log("in the add bell generator function in the add Bell Saga");
+  console.log("this is the action.payload in the addBell generator", bellPayload);
+
   try {
     // POST request to add bell to database
     // yield axios.post('/api/bells', action.payload);

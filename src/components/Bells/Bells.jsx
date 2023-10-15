@@ -8,19 +8,27 @@ function Bells() {
   const dispatch = useDispatch();
 
   const bellStore = useSelector((state) => state.bellStore);
-  console.log('this is the bellStore', bellStore);
+  console.log("this is the bellStore", bellStore);
 
   useEffect(() => {
     dispatch({ type: "FETCH_BELLS" });
+    // console.log('this is Bells', Bells);
+
+    // dispatch({ type: "SET_ALL_BELLS", payload: Bells });
   }, []);
 
+  // const handleBellSelect = (bell) => {
+  //   dispatch({ type: "SET_ALL_BELLS", payload: bell });
+  // };
   function addBellOnClick() {
     console.log("clicked to add Bell");
+    // would i call the handle bell select here????
+    // handleBellSelect();
     history.push("/AddBell");
   }
 
   function deleteBellOnClick(bell) {
-    console.log('the delete bell button has been clicked');
+    console.log("the delete bell button has been clicked");
     dispatch({ type: "DELETE_BELL_REQUEST", payload: bell });
   }
 
@@ -36,6 +44,13 @@ function Bells() {
               <ul>
                 <li>{`Time: ${bell.time} `}</li>
               </ul>
+              <button className="learn-more">EDIT</button>
+              <button
+                className="learn-more"
+                onClick={() => deleteBellOnClick(bell.id)}
+              >
+                DELETE
+              </button>
             </div>
           ))}
         </div>
