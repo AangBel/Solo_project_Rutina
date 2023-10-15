@@ -59,7 +59,7 @@ export default function MyDay() {
       <div style={{ marginBottom: "90px", flexGrow: 1 }}>
         <section className="tasksClass">
           <RightNow tasks={taskStore} />
-          <div className="flip-horizontal-bottom">
+          <div className="CardClassMap">
             {taskStore.map((task) => (
               <div key={task.id} className="card shadow">
                 <div

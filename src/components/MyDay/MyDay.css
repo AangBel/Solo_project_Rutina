@@ -4,6 +4,10 @@ h5 {
   margin-bottom: 20px;
   margin-top: 13px;
 }
+
+li{
+  padding:10px;
+}
 /* this one changes the card fonts to gruppo */
 /* .tasksClass{
   font-family: "Gruppo", sans-serif;
@@ -12,15 +16,18 @@ h5 {
 .card-content {
   width: 100px;
 }
+/* ---------------- */
+.CardClassMap{
 
+}
 /* ----------------------------- */
 .card {
-  width: 260px;
-  height: 600px;
+  width: auto;
+  height: auto;
   padding: 27px;
   margin: 50px 50px 50px 90px;
   border: 50px;
-  background: white;
+  background: 240 240 240;
   border-radius: 10px;
   transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
