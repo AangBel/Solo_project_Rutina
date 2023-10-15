@@ -49,10 +49,10 @@ const AddBell = () => {
             onChange={(e) => setBellStartTime(e.target.value)}
           /> */}
 
-          <h6>End Time:</h6>
+          <h6>Time:</h6>
           <input
             id="endTimeInput"
-            type="datetime-local"
+            type="time"
             onChange={(e) => setBellEndTime(e.target.value)}
           />
 
