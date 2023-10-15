@@ -15,6 +15,7 @@ import selectedTaskToEdit from '../reducers/editTaskReducer';
 import yieldDelete from './deleteTaskSaga';
 import RightNow from '../../RightNow/RightNow';
 import addBellSaga from './addBellSaga';
+import deleteBellWatcher from './deleteBellSaga';
 
 
 // rootSaga is the primary saga.
@@ -41,5 +42,6 @@ export default function* rootSaga() {
     selectedTaskToEdit,// i wonder if this one would be one we call here- ()???
     yieldDelete(),
     addBellSaga, //will this one require ()?
+    deleteBellWatcher(), //is it correct for this one to have ( and run from the root?)
   ]);
 }
