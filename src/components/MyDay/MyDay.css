@@ -1,38 +1,120 @@
-.AppBarClass {
-  color: green;
+h5 {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  margin-top: 13px;
 }
-
 /* this one changes the card fonts to gruppo */
 /* .tasksClass{
   font-family: "Gruppo", sans-serif;
 } */
 
+.card-content {
+  width: 100px;
+}
+
 /* ----------------------------- */
 .card {
-  width: 190px;
-  height: 254px;
+  width: 241px;
+  height: 557px;
+  padding: 27px;
+  margin: 50px 50px 50px 90px;
+  border: 50px;
   background: white;
   border-radius: 10px;
   transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
- }
- 
- .shadow {
-  box-shadow: inset 0 -3em 3em rgba(0,0,0,0.1),
-              0 0  0 2px rgb(190, 190, 190),
-              0.3em 0.3em 1em rgba(0,0,0,0.3);
- }
- 
- 
+}
+
+.shadow {
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(115, 104, 104, 0.3);
+}
+
 /* ----------------------- */
+/* LEARN MORE */
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 15px;
+  margin:10px;
+}
+
+button.learn-more {
+  font-weight: 600;
+  color: #382b22;
+  text-transform: uppercase;
+  padding: 1.25em 2em;
+  background: #fff0f0;
+  border: 2px solid #b18597;
+  border-radius: 0.75em;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1),
+    -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+    background 150ms cubic-bezier(0, 0, 0.58, 1),
+    -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.learn-more::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #f9c4d2;
+  border-radius: inherit;
+  -webkit-box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+  box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+  -webkit-transform: translate3d(0, 0.75em, -1em);
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+    box-shadow 150ms cubic-bezier(0, 0, 0.58, 1),
+    -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1),
+    -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+button.learn-more:hover {
+  background: #ffe9e9;
+  -webkit-transform: translate(0, 0.25em);
+  transform: translate(0, 0.25em);
+}
+
+button.learn-more:hover::before {
+  -webkit-box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+  box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+  -webkit-transform: translate3d(0, 0.5em, -1em);
+  transform: translate3d(0, 0.5em, -1em);
+}
+
+button.learn-more:active {
+  background: #ffe9e9;
+  -webkit-transform: translate(0em, 0.75em);
+  transform: translate(0em, 0.75em);
+}
+
+button.learn-more:active::before {
+  -webkit-box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+  box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+  -webkit-transform: translate3d(0, 0, -1em);
+  transform: translate3d(0, 0, -1em);
+}
+
+/* -------- */
 .ButtonsClass {
   background-color: #cee9f1;
 }
 
-
-
-
 /* style={{ background: "#D9D9D9" }} */
-
 
 /* an attempt at having the cards have an animation- https://animista.net/play/basic/flip */
 /* .flip-horizontal-bottom {
@@ -42,12 +124,11 @@
     both;
 } */
 
-
 .button {
-  padding: 1rem 2rem;
-  border-radius: .5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   border: none;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 400;
   color: #f4f0ff;
   text-align: center;
@@ -63,9 +144,14 @@
   top: 0;
   height: 100%;
   width: 100%;
-  border-radius: .5rem;
-  background: linear-gradient(180deg, rgba(8, 77, 126, 0) 0%, rgba(8, 77, 126, 0.42) 100%),rgba(47,255,255,.24);
-  box-shadow: inset 0 0 12px rgba(151,200,255,.44);
+  border-radius: 0.5rem;
+  background: linear-gradient(
+      180deg,
+      rgba(8, 77, 126, 0) 0%,
+      rgba(8, 77, 126, 0.42) 100%
+    ),
+    rgba(47, 255, 255, 0.24);
+  box-shadow: inset 0 0 12px rgba(151, 200, 255, 0.44);
   z-index: -1;
 }
 
@@ -77,12 +163,17 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(8, 77, 126, 0) 0%, rgba(8, 77, 126, 0.42) 100%),rgba(47,255,255,.24);
-  box-shadow: inset 0 0 12px rgba(151,200,255,.44);
-  border-radius: .5rem;
+  background: linear-gradient(
+      180deg,
+      rgba(8, 77, 126, 0) 0%,
+      rgba(8, 77, 126, 0.42) 100%
+    ),
+    rgba(47, 255, 255, 0.24);
+  box-shadow: inset 0 0 12px rgba(151, 200, 255, 0.44);
+  border-radius: 0.5rem;
   opacity: 0;
   z-index: -1;
-  transition: all .3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 .button:hover::after {
@@ -95,18 +186,56 @@
   left: 0;
   height: 100%;
   width: 100%;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   z-index: -1;
 }
 
 .button-border::before {
   content: "";
   position: absolute;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   padding: 1px;
   inset: 0;
-  background: linear-gradient(180deg, rgba(184, 238, 255, 0.24) 0%, rgba(184, 238, 255, 0) 100%),linear-gradient(0deg, rgba(184, 238, 255, 0.32), rgba(184, 238, 255, 0.32));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  background: linear-gradient(
+      180deg,
+      rgba(184, 238, 255, 0.24) 0%,
+      rgba(184, 238, 255, 0) 100%
+    ),
+    linear-gradient(0deg, rgba(184, 238, 255, 0.32), rgba(184, 238, 255, 0.32));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   pointer-events: none;
+}
+
+/* ///////////////// */
+/* CUSTOM BUTTON  */
+
+.blueButton {
+  font-size: 18px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  will-change: box-shadow, transform;
+  background: radial-gradient(100% 100% at 100% 0%, #89e5ff 0%, #5468ff 100%);
+  box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%),
+    0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%),
+    inset 0px -0.01em 0px rgb(58 65 111 / 50%);
+  padding: 0 2em;
+  border-radius: 0.3em;
+  color: #fff;
+  height: 2.6em;
+  text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.blueButton:hover {
+  box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%),
+    0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #3c4fe0;
+  transform: translateY(-0.1em);
+}
+
+.blueButton::active {
+  box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
+  transform: translateY(0em);
 }

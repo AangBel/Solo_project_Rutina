@@ -18,7 +18,8 @@ export default function RightNow() {
     console.log("hello from get current task");
 
     const localTime = moment().format("YYYY-MM-DD"); // store localTime
-    const proposedDate = localTime + "T00:00:00.000Z";
+    const proposedDate = localTime + {task_time_start};
+    console.log('this is proposedDate:', proposedDate);
 
     const now = new Date();
     console.log("this is now:", now);
@@ -42,7 +43,7 @@ export default function RightNow() {
     setActiveTask(null);
   };
 
-  //   setInterval(getCurrentTask, 60000);
+    // setInterval(getCurrentTask, 60000);
 
   return (
     <div>

@@ -49,8 +49,8 @@ export default function MyDay() {
     <>
       <header style={{ background: "#CEE9f1" }}>
         <div className="toolbar">
-          <button className="custom-button">Today</button>
-          <button className="custom-button" onClick={AddTaskOnClick}>
+          <button className="blueButton">Today</button>
+          <button className="blueButton" onClick={AddTaskOnClick}>
             Add Task
           </button>
         </div>
@@ -72,13 +72,13 @@ export default function MyDay() {
                       <li>{`End Time: ${task.task_time_end}`}</li>
                     </ul>
                 
-                    <button onClick={() => editTaskOnClick(task.id)}>
+                    <button className="learn-more" onClick={() => editTaskOnClick(task.id)}>
                       EDIT
                     </button>
-                    <button onClick={() => deleteTaskOnClick(task.id)}>
+                    <button className="learn-more" onClick={() => deleteTaskOnClick(task.id)}>
                       DELETE
                     </button>
-                    <button>COMPLETE</button>
+                    <button className="learn-more">COMPLETE</button>
                   </div>
                 </div>
               </div>
