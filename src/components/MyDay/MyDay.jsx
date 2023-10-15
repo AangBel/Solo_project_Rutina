@@ -1,17 +1,19 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import store from "../../redux/store";
+
 import "./MyDay.css";
 
-import TaskCard from "../TaskCard/TaskCard";
+// import TaskCard from "../TaskCard/TaskCard";
 
-export default function MyDay({ formattedDate, formattedTime }) {
+
+export default function MyDay() {
   console.log("in the MyDay function");
   const dispatch = useDispatch();
   const history = useHistory();
 
   const taskStore = useSelector((state) => state.taskStore);
+  console.log('this is task store:', taskStore);
 
   useEffect(() => {
     dispatch({ type: "FETCH_TASKS" });
