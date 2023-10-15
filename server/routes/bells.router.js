@@ -1,21 +1,21 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
-const {
-  rejectUnauthenticated,
-} = require("../modules/authentication-middleware");
+// const {
+//   rejectUnauthenticated,
+// } = require("../modules/authentication-middleware");
 
 // GET route to retrieve all bells from the database
 //added the reject authenticated
-router.get("/", rejectUnauthenticated, (req, res) => {
+router.get("/", (req, res) => {
   const queryText = `SELECT * FROM bells ORDER BY id ASC`;
   pool
     .query(queryText)
     .then((result) => {
-      console.log("this is result from bells router", result);
+      //   console.log("this is result from bells router", result);
       console.log("this is result.rows from bells router", result.rows);
-      console.log("this is req", req);
-      console.log("this is req.user", req.user);
+      //   console.log("this is req", req);
+      //   console.log("this is req.user", req.user);
 
       res.send(result.rows);
     })

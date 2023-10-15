@@ -44,6 +44,6 @@ export default function* rootSaga() {
     yieldDelete(),
     addBellSaga(), //will this one require ()?
     deleteBellWatcher(), //is it correct for this one to have ( and run from the root?)
-    fetchAllBellsSaga,
+    fetchAllBellsSaga,//how about this one?
   ]);
 }
