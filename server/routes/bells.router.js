@@ -1,13 +1,22 @@
 const express = require("express");
 const router = express.Router();
 const pool = require("../modules/pool");
+const {
+  rejectUnauthenticated,
+} = require("../modules/authentication-middleware");
 
 // GET route to retrieve all bells from the database
-router.get("/", (req, res) => {
-  const queryText = 'SELECT * FROM "bells"';
+//added the reject authenticated
+router.get("/", rejectUnauthenticated, (req, res) => {
+  const queryText = `SELECT * FROM bells ORDER BY id ASC`;
   pool
     .query(queryText)
     .then((result) => {
+      console.log("this is result from bells router", result);
+      console.log("this is result.rows from bells router", result.rows);
+      console.log("this is req", req);
+      console.log("this is req.user", req.user);
+
       res.send(result.rows);
     })
     .catch((error) => {
@@ -21,7 +30,12 @@ router.post("/", (req, res) => {
   const newBell = req.body;
   const queryText = `INSERT INTO "bells" ("timer_name", "time", "status", "userId")
                                          VALUES ($1, $2, $3, $4)`;
-  const queryValues = [newBell.timer_name, newBell.time, newBell.status, newBell.userId];
+  const queryValues = [
+    newBell.timer_name,
+    newBell.time,
+    newBell.status,
+    newBell.userId,
+  ];
   pool
     .query(queryText, queryValues)
     .then(() => {

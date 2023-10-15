@@ -7,6 +7,21 @@ const app = express();
 const sessionMiddleware = require("./modules/session-middleware");
 const passport = require("./strategies/user.strategy");
 
+// const winston = require('winston');
+
+// const logger = winston.createLogger({
+//   level: 'info',
+//   format: winston.format.combine(
+//     winston.format.timestamp(),
+//     winston.format.json()
+//   ),
+//   transports: [
+//     new winston.transports.Console(),
+//   ],
+// });
+
+// logger.info('Server started');
+// // logger.error('Error getting bells from database', error);
 // Route includes
 const userRouter = require("./routes/user.router");
 const myDayRouter = require("./routes/myday.router");
@@ -33,7 +48,7 @@ app.use("/api/user", userRouter);
 app.use("/api/tasks", myDayRouter);
 
 //would this url still be /api/?
-app.use('/api/bells', bellRouter);
+app.use("/api/bells", bellRouter);
 
 // Serve static files
 app.use(express.static("build"));

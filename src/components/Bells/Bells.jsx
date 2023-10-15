@@ -33,32 +33,38 @@ function Bells() {
   }
 
   return (
-    <div className="container">
-      <p>This about page is for anyone to read!</p>
-      <p>This is now the Bells page</p>
-      <div className="card shadow">
-        <div className="BellClassMap">
-          {bellStore.map((bell) => (
-            <div key={bell.id}>
-              <h5>{bell.bell_name}</h5>
-              <ul>
-                <li>{`Time: ${bell.time} `}</li>
-              </ul>
-              <button className="learn-more">EDIT</button>
-              <button
-                className="learn-more"
-                onClick={() => deleteBellOnClick(bell.id)}
-              >
-                DELETE
-              </button>
-            </div>
-          ))}
+    <>
+      <header style={{ background: "#CEE9f1" }}>
+        <div className="toolbar">
+          <button className="learn-more" onClick={addBellOnClick}>
+            Add Bell
+          </button>
         </div>
-        <button className="learn-more" onClick={addBellOnClick}>
-          Add Bell
-        </button>
+      </header>
+      <div className="container">
+        <p>This about page is for anyone to read!</p>
+        <p>This is now the Bells page</p>
+        <div className="card shadow">
+          <div className="BellClassMap">
+            {bellStore.map((bell) => (
+              <div key={bell.id}>
+                <h5>{bell.bell_name}</h5>
+                <ul>
+                  <li>{`Time: ${bell.time} `}</li>
+                </ul>
+                <button className="learn-more">EDIT</button>
+                <button
+                  className="learn-more"
+                  onClick={() => deleteBellOnClick(bell.id)}
+                >
+                  DELETE
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
