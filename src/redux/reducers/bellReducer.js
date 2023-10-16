@@ -1,10 +1,7 @@
-const bellReducer = (state = [], action) => {
+export const bellReducer = (state = [], action) => {
     switch (action.type) {
         case "SET_ALL_BELLS":
-            return {
-                ...state,
-                bells: [...state.bells, action.payload]
-            };
+            return action.payload;
         default:
             return state;
     }

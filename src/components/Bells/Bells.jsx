@@ -19,20 +19,20 @@ function Bells() {
     dispatch({ type: "FETCH_BELLS" });
     // console.log('this is Bells', Bells);
 
-    // dispatch({ type: "SET_ALL_BELLS", payload: Bells });
+    // dispatch({ type: "SET_ALL_BELLS" });
   }, []);
 
-  // useEffect(() => {
-  //   dispatch(fetchBells());
-  // }, [dispatch]);
 
-  // const handleBellSelect = (bell) => {
-  //   dispatch({ type: "SET_ALL_BELLS", payload: bell });
-  // };
+
+  const handleBellSelect = (bell) => {
+    console.log('this is bell under handleBellSelect', bell);
+    dispatch({ type: "SET_ALL_BELLS", payload: bell });
+  };
+
   function addBellOnClick() {
     console.log("clicked to add Bell");
     // would i call the handle bell select here????
-    // handleBellSelect();
+    handleBellSelect();
     history.push("/AddBell");
   }
 

@@ -3,7 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import taskReducer from './taskReducer';
 import selectedTaskToEdit from './editTaskReducer';
-import bellReducer from './bellReducer';
+import {bellReducer} from './bellReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,9 +15,9 @@ import bellReducer from './bellReducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
-  taskStore: taskReducer,
-  storeForEditTask: selectedTaskToEdit,
-  bellStore: bellReducer,
+  taskReducer,
+  // storeForEditTask: selectedTaskToEdit,
+  bellReducer,
 });
 
 export default rootReducer;
