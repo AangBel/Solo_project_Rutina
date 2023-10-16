@@ -32,7 +32,10 @@ function* deleteBellWorker(action) {
   try {
     console.log('in the delete bell gen fn!');
     const deleteBellResponse = yield call(() => axios.delete(`/api/bells/${bellId}`));
-    yield put({ type: "DELETE_BELL_REQUEST", payload: bellId });
+    // yield put({ type: "REMOVE_BELL_REQUEST", payload: bellId });
+
+    // yield put({ type: "DELETE_BELL_REQUEST", payload: bellId });
+
     console.log('this is the response data in the delete bell response gn fn', deleteBellResponse.data);
     yield put ({ type: "FETCH_BELLS" });
   } catch (error) {
