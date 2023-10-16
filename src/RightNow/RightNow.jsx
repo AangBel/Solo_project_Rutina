@@ -19,8 +19,9 @@ export default function RightNow() {
     console.log("hello from get current task");
 
     const localTime = dayjs().format("YYYY-MM-DD"); // store localTime
+    console.log('this is local Time', localTime);
     // const proposedDate = localTime + {task_time_start};
-    console.log('this is proposedDate:', proposedDate);
+    // console.log('this is proposedDate:', proposedDate);
 
     const now = new Date();
     console.log("this is now:", now);

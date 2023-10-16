@@ -1,0 +1,82 @@
+/* FILEPATH: /Users/angelica/PrimeAcademy/Jade/Tier2/solo/Solo_project_Rutina/src/components/UserPage/UserPage.css */
+
+/* Center the content */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Style the user info section */
+.user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.user-info h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.user-info p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Style the workout section */
+.workouts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.workouts h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.workout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 80%;
+    max-width: 500px;
+}
+
+.workout h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.workout p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.workout button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.workout button:hover {
+    background-color: #0069d9;
+}
+
+img{
+    animation: mymove 5s infinite;
+    width: fit-content;
+}
