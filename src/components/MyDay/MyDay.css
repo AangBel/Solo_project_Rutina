@@ -5,6 +5,12 @@ h5 {
   margin-top: 13px;
 }
 
+h1{
+
+text-align: center;
+background-color: #c1d7f5;
+}
+
 li{
   padding:10px;
 }
