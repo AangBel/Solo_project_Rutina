@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 
 import "./MyDay.css";
-import RightNow from "../../RightNow/RightNow";
+// import RightNow from "../../RightNow/RightNow";
 import sun from "../images/sun.svg";
 import moon from "../images/moon.png";
 // import TaskCard from "../TaskCard/TaskCard";
@@ -68,7 +68,7 @@ export default function MyDay() {
       <div className="my-day-container">
       <div style={{ marginBottom: "90px", flexGrow: 1 }}>
         <section className="tasksClass">
-          <RightNow tasks={taskReducer} />
+          <div tasks={taskReducer}></div>
           <div className="CardClassMap">
             {taskReducer.map((task) => (
               <div key={task.id} className="card shadow">

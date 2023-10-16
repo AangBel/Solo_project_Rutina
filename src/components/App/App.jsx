@@ -72,12 +72,13 @@ function App() {
             <MyDay />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/RightNow">
-            <RightNow />
-          </ProtectedRoute>
 
           <ProtectedRoute exact path="/Bells">
             <Bells />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/RightNow">
+            <RightNow />
           </ProtectedRoute>
 
           <Route exact path="/login">
@@ -121,13 +122,13 @@ function App() {
             <AddBell />
           </Route>
 
-          <Route exact path="/MyDay">
+          {/* <Route exact path="/MyDay">
             <MyDay />
           </Route>
 
           <Route exact path="/RightNow">
             <RightNow />
-          </Route>
+          </Route> */}
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
