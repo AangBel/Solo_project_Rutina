@@ -7,14 +7,13 @@ import RightNow from "../../RightNow/RightNow";
 
 // import TaskCard from "../TaskCard/TaskCard";
 
-
 export default function MyDay() {
   console.log("in the MyDay function");
   const dispatch = useDispatch();
   const history = useHistory();
 
   const taskReducer = useSelector((state) => state.taskReducer);
-  console.log('this is task store:', taskReducer);
+  console.log("this is task store:", taskReducer);
 
   useEffect(() => {
     dispatch({ type: "FETCH_TASKS" });
@@ -42,10 +41,14 @@ export default function MyDay() {
 
   function deleteTaskOnClick(task) {
     console.log("clicked the delete button");
-    console.log('this is the task to be deleted:', task)
-    // console.log('this is the task.id to be deleted:', task.id)
-
+    console.log("this is the task to be deleted:", task);
     dispatch({ type: "DELETE_TASK", payload: task });
+  }
+
+  function completeTaskOnClick(task) {
+    console.log("clicked the complete button");
+    console.log("this is the task to be deleted:", task);
+    dispatch({ type: "COMPLETE_TASK", payload: task });
   }
 
   return (
@@ -74,14 +77,22 @@ export default function MyDay() {
                       <li>{`Start Time: ${task.task_time_start}`}</li>
                       <li>{`End Time: ${task.task_time_end}`}</li>
                     </ul>
-                
-                    <button className="learn-more" onClick={() => editTaskOnClick(task.id)}>
+
+                    <button
+                      className="learn-more"
+                      onClick={() => editTaskOnClick(task.id)}
+                    >
                       EDIT
                     </button>
-                    <button className="learn-more" onClick={() => deleteTaskOnClick(task.id)}>
+                    <button
+                      className="learn-more"
+                      onClick={() => deleteTaskOnClick(task.id)}
+                    >
                       DELETE
                     </button>
-                    <button className="learn-more">COMPLETE</button>
+                    <button className="learn-more"
+                    onClick={() => completeTaskOnClick(task.id)}
+                    >COMPLETE</button>
                   </div>
                 </div>
               </div>
