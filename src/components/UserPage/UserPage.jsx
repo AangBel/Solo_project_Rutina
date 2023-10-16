@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 
 import './UserPage.css'
-import boat from '../images/boat.gif';
+import framedBoat from '../images/framedBoat.gif'
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -15,9 +15,9 @@ function UserPage() {
   return (
     <>
       <div className="container">
-      <img src={boat} alt="boat" />
         <h2 className="welcomeText">Welcome, {user.username}!</h2>
-        <p className="idText">Your ID is: {user.id}</p>
+      <img src={framedBoat} alt="Boat bobbing amongst waves gif" />
+        {/* <p className="idText">Your ID is: {user.id}</p> */}
         <LogOutButton className="btn" />
       </div>
       

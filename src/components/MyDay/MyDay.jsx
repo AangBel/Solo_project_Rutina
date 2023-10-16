@@ -4,7 +4,8 @@ import { useHistory } from "react-router-dom";
 
 import "./MyDay.css";
 import RightNow from "../../RightNow/RightNow";
-
+import sun from "../images/sun.svg";
+import moon from "../images/moon.png";
 // import TaskCard from "../TaskCard/TaskCard";
 
 export default function MyDay() {
@@ -59,9 +60,12 @@ export default function MyDay() {
           <button className="learn-more" onClick={AddTaskOnClick}>
             Add Task
           </button>
+          {/* <img className="moonClass" src={moon}></img>
+          <img className="sunClass" src={sun}></img> */}
+
         </div>
       </header>
-
+      <div className="my-day-container">
       <div style={{ marginBottom: "90px", flexGrow: 1 }}>
         <section className="tasksClass">
           <RightNow tasks={taskReducer} />
@@ -99,6 +103,7 @@ export default function MyDay() {
             ))}
           </div>
         </section>
+      </div>
       </div>
     </>
   );

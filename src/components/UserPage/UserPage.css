@@ -13,7 +13,7 @@
 .user-info {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     margin-bottom: 2rem;
 }
 
@@ -78,5 +78,6 @@
 
 img{
     animation: mymove 5s infinite;
-    width: fit-content;
+    width:fit-content;
+    height:fit-content
 }

@@ -22,6 +22,8 @@ li{
   width: auto;
   border-radius: 10px;
   padding: 10px;
+
+
 }
 /* ---------------- */
 /* .CardClassMap{
@@ -31,7 +33,7 @@ li{
 .card {
   width: auto;
   height: auto;
-  padding: 27px;
+  /* padding: 1px; */
   margin: 50px 50px 50px 90px;
   border: 50px;
   background: 240 240 240;
@@ -253,3 +255,25 @@ button.learn-more:active::before {
   box-shadow: inset 0px 0.1em 0.6em #3c4fe0;
   transform: translateY(0em);
 }
+
+/* /////-----------------
+ */
+.my-day-container {
+  background-image: url('../images/1.svg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  padding-top: 100px; /* adjust as needed to avoid overlapping with the nav bar */
+}
+
+/* -----------------
+ */
+ .sunClass{
+  width: 20px;
+  height:20px;
+ }
+
+ .moonClass{
+  width: 20px;
+  height:20px;
+ }
