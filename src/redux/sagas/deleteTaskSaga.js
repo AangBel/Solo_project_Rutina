@@ -29,7 +29,10 @@ function* deleteTask(action) {
   try {
     console.log("in the deleteTask generator function");
     const deleteResponse = yield call(() => axios.delete(`/api/tasks/${id}`));
+    //DELETE TASK OR REMOVE TASK?
     yield put({ type: "REMOVE_TASK", payload: id });
+
+    // yield put({ type: "DELETE_TASK", payload: id });
     console.log(
       "this is the response data in the delete response generator function",
       deleteResponse.data
@@ -40,14 +43,15 @@ function* deleteTask(action) {
   }
 }
 
+// function* yieldDelete() {
+//   console.log("in the yieldDelete generator function");
+//     //DELETE TASK OR REMOVE TASK?
+//   yield takeEvery("REMOVE_TASK", deleteTask);
+// }
+
 function* yieldDelete() {
-  console.log("in the yieldDelete generator function");
+  console.log("in the yield for the delete");
   yield takeEvery("DELETE_TASK", deleteTask);
 }
-
-// function* yieldDelete() {
-//   console.log("in the yield for the delete");
-//   yield takeEvery("DELETE_TASK", deleteTask);
-// }
 
 export default yieldDelete;

@@ -42,6 +42,9 @@ export default function MyDay() {
 
   function deleteTaskOnClick(task) {
     console.log("clicked the delete button");
+    console.log('this is the task to be deleted:', task)
+    // console.log('this is the task.id to be deleted:', task.id)
+
     dispatch({ type: "DELETE_TASK", payload: task });
   }
 

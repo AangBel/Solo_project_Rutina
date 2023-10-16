@@ -41,7 +41,7 @@ export default function* rootSaga() {
     selectReducer,
     yieldEdit,
     selectedTaskToEdit,// i wonder if this one would be one we call here- ()???
-    yieldDelete,
+    yieldDelete(),//this needs to have ( or else it wont delete tasks)
     addBellSaga(), //will this one require ()?
     deleteBellWatcher, //is it correct for this one to have ( and run from the root?)
     fetchAllBellsSaga(),//how about this one?
