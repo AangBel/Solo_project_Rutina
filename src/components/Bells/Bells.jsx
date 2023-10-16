@@ -56,7 +56,7 @@ function Bells() {
       </div>
       <div className="card shadow">
         <div className="BellClassMap">
-          {bellStore.map((bell) => (
+          {/* {bellStore.map((bell) => (
             <div key={bell.id}>
               <h5>{bell.bell_name}</h5>
               <h5>{bell.timer_name}</h5>
@@ -70,9 +70,9 @@ function Bells() {
                 onClick={() => deleteBellOnClick(bell.id)}
               >
                 DELETE
-              </button>
-            </div>
-          ))}
+              </button> */}
+            {/* </div> */}
+          {/* ))} */}
         </div>
       </div>
     </>

@@ -1,29 +1,27 @@
-
-// const bellReducer = (state = [], action) => {
-//     switch (action.type) {
-//         case 'ADD_BELL':
-//             return {
-//                 ...state,
-//                 bells: [...state.bells, action.payload]
-//             };
-//         default:
-//             return state;
-//     }
-// };
+const bellReducer = (state = [], action) => {
+    switch (action.type) {
+        case "SET_ALL_BELLS":
+            return {
+                ...state,
+                bells: [...state.bells, action.payload]
+            };
+        default:
+            return state;
+    }
+};
 
 //do we want this to be a {} instead of []??
 
-const bellReducer = (state = [], action) => {
-    switch (action.type) {
-      case 'SET_ALL_BELLS':
-        return action.payload;
-      default:
-        return state;
-    }
-  };
+// const bellReducer = (state = [], action) => {
+//   switch (action.type) {
+//     case "SET_ALL_BELLS":
+//       return action.payload;
+//     default:
+//       return state;
+//   }
+// };
 
-
-export default bellReducer;
+// export default bellReducer;
 
 // case 'REMOVE_BELL':
 //             return {
