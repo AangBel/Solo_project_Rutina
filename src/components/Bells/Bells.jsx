@@ -30,9 +30,10 @@ function Bells() {
     history.push("/AddBell");
   }
 
-  function deleteBellOnClick(bell) {
+  function deleteBellOnClick(bellId) {
     console.log("the delete bell button has been clicked");
-    dispatch({ type: "DELETE_BELL_REQUEST", payload: bell });
+    dispatch({ type: "DELETE_BELL_REQUEST", payload: bellId });
+    // dispatch({ type: "DELETE_BELL", payload: { id: bellId } });
   }
 
   return (
@@ -44,10 +45,7 @@ function Bells() {
           </button>
         </div>
       </header>
-      <div className="container">
-        <p>This about page is for anyone to read!</p>
-        <p>This is now the Bells page</p>
-      </div>
+
       <div style={{ marginBottom: "90px", flexGrow: 1 }}>
         <div className="BellClassMap">
           {bellReducer.map((bell) => (

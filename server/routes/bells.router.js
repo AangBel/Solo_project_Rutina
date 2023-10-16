@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     .query(queryText)
     .then((result) => {
       //   console.log("this is result from bells router", result);
-      console.log("this is result.rows from bells router", result.rows);
+      // console.log("this is result.rows from bells router", result.rows);
       //   console.log("this is req", req);
       //   console.log("this is req.user", req.user);
 
@@ -50,10 +50,16 @@ router.post("/", (req, res) => {
 // DELETE route to remove a bell from the database
 router.delete("/:id", (req, res) => {
   const bellId = req.params.id;
-  const queryText = `DELETE FROM "bells" WHERE "id" = $1`;
+  console.log('this is req.params.id under router.delete (bellId)', bellId);
+  const queryText = `DELETE FROM "bells" WHERE "id" = $1;
+  `;
   pool
     .query(queryText, [bellId])
     .then(() => {
+      console.log(
+        "delete request successful- this is the bell id that was set to be deleted",
+        bellId
+      );
       res.sendStatus(200);
     })
     .catch((error) => {

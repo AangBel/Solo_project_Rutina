@@ -13,8 +13,8 @@ export default function MyDay() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const taskStore = useSelector((state) => state.taskStore);
-  console.log('this is task store:', taskStore);
+  const taskReducer = useSelector((state) => state.taskReducer);
+  console.log('this is task store:', taskReducer);
 
   useEffect(() => {
     dispatch({ type: "FETCH_TASKS" });
@@ -58,9 +58,9 @@ export default function MyDay() {
 
       <div style={{ marginBottom: "90px", flexGrow: 1 }}>
         <section className="tasksClass">
-          <RightNow tasks={taskStore} />
+          <RightNow tasks={taskReducer} />
           <div className="CardClassMap">
-            {taskStore.map((task) => (
+            {taskReducer.map((task) => (
               <div key={task.id} className="card shadow">
                 <div
                   style={{ backgroundColor: "#f0f0f0", marginBottom: "16px" }}

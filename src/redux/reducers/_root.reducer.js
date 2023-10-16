@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import taskReducer from './taskReducer';
-import selectedTaskToEdit from './editTaskReducer';
+// import selectedTaskToEdit from './editTaskReducer';
 import {bellReducer} from './bellReducer';
 
 // rootReducer is the primary reducer for our entire project
