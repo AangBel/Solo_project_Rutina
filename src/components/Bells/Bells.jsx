@@ -27,8 +27,6 @@ function Bells() {
 
   function addBellOnClick() {
     console.log("clicked to add Bell");
-    // would i call the handle bell select here????
-    handleBellSelect();
     history.push("/AddBell");
   }
 
@@ -50,19 +48,18 @@ function Bells() {
         <p>This about page is for anyone to read!</p>
         <p>This is now the Bells page</p>
       </div>
-      <div className="card shadow">
+      <div style={{ marginBottom: "90px", flexGrow: 1 }}>
         <div className="BellClassMap">
-          {bellReducer.map((bells) => (
-            <div key={bells.id}>
-              <h5>{bells.timer_name}</h5>
-
+          {bellReducer.map((bell) => (
+            <div className="card shadow" key={bell.id}>
+              <h5>{bell.timer_name}</h5>
               <ul>
-                <li>{`Time: ${bells.time}`}</li>
+                <li>{`Time: ${bell.time}`}</li>
               </ul>
               <button className="learn-more">EDIT</button>
               <button
                 className="learn-more"
-                onClick={() => deleteBellOnClick(bells.id)}
+                onClick={() => deleteBellOnClick(bell.id)}
               >
                 DELETE
               </button>
