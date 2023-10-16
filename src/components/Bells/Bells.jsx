@@ -7,25 +7,21 @@ function Bells() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const bellStore = useSelector((state) => state.bellStore);
-  console.log("this is the bellStore", bellStore);
+  useEffect(() => {
+    dispatch({ type: "FETCH_BELLS" });
+  }, []);
 
   const bells = useSelector((state) => state.bells);
   console.log("this is bells", bells);
 
+  const bellStore = useSelector((state) => state.bellStore);
+  console.log("this is the bellStore", bellStore);
 
-
-  useEffect(() => {
-    dispatch({ type: "FETCH_BELLS" });
-    // console.log('this is Bells', Bells);
-
-    // dispatch({ type: "SET_ALL_BELLS" });
-  }, []);
-
-
+  const bellReducer = useSelector((state) => state.bellReducer);
+  console.log("this is the bellReducer", bellReducer);
 
   const handleBellSelect = (bell) => {
-    console.log('this is bell under handleBellSelect', bell);
+    console.log("this is bell under handleBellSelect", bell);
     dispatch({ type: "SET_ALL_BELLS", payload: bell });
   };
 
@@ -56,23 +52,22 @@ function Bells() {
       </div>
       <div className="card shadow">
         <div className="BellClassMap">
-          {/* {bellStore.map((bell) => (
-            <div key={bell.id}>
-              <h5>{bell.bell_name}</h5>
-              <h5>{bell.timer_name}</h5>
+          {bellReducer.map((bells) => (
+            <div key={bells.id}>
+              <h5>{bells.timer_name}</h5>
 
               <ul>
-                <li>{`Time: ${bell.time} `}</li>
+                <li>{`Time: ${bells.time}`}</li>
               </ul>
               <button className="learn-more">EDIT</button>
               <button
                 className="learn-more"
-                onClick={() => deleteBellOnClick(bell.id)}
+                onClick={() => deleteBellOnClick(bells.id)}
               >
                 DELETE
-              </button> */}
-            {/* </div> */}
-          {/* ))} */}
+              </button>
+            </div>
+          ))}
         </div>
       </div>
     </>
