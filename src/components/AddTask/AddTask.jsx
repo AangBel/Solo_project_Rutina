@@ -3,6 +3,14 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./AddTask.css";
 
+import dayjs from "dayjs"; 
+import utc from "dayjs/plugin/utc";
+import timezone from "dayjs/plugin/timezone";
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault("America/Chicago");
+
 const AddTask = () => {
   const history = useHistory();
   const dispatch = useDispatch();
@@ -32,10 +40,13 @@ const AddTask = () => {
     // const formattedStartTime = formatTime(startTime);
     // const formattedEndTime = formatTime(endTime);
 
+    const localStartTime = dayjs(taskTimeStart).utc().format();
+    const localEndTime = dayjs(taskTimeEnd).utc().format();
+
     const taskConst = {
       task_name: taskName,
-      task_time_start: taskTimeStart,
-      task_time_end: taskTimeEnd,
+      task_time_start: localStartTime,
+      task_time_end: localEndTime,
       status: false,
       userId: 1,
     };
