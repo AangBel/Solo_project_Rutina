@@ -1,0 +1,45 @@
+/* FILEPATH: /Users/angelica/PrimeAcademy/Jade/Tier2/solo/Solo_project_Rutina/src/components/Pomodoro/Pomodoro.css */
+
+/* .tomato { */
+  /* position: absolute; */
+  /* position: center; */
+
+  /* transform: translate(-50%, -50%); */
+/* } */
+
+h1 {
+  text-align: center;
+  background-color: white;
+}
+h2 {
+  text-align: center;
+}
+
+.button-container {
+  padding-bottom: 20px;
+  padding-left: 120px;
+  /* align-items: center;
+  align-content: center; */
+}
+.squishCardClass {
+  width: 567px;
+  height: 407px;
+}
+.tomatoCard {
+  width: auto;
+  height: auto;
+  padding: 10px;
+  margin: 50px 50px 50px 90px;
+  border: 50px;
+  background: 240 240 240;
+  border-radius: 10px;
+  transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
+    0.3em 0.3em 1em rgba(115, 104, 104, 0.3);
+}
+
+img{
+    height:200px;
+    padding-left:90px;
+
+}
