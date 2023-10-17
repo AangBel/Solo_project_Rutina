@@ -23,7 +23,6 @@ console.log("this is localized:", localized);
 const now = new Date();
 console.log("this is now:", now);
 
-
 export default function MyDay() {
   console.log("in the MyDay function");
   const dispatch = useDispatch();
@@ -80,21 +79,21 @@ export default function MyDay() {
 
   return (
     <>
-      <header style={{ background: "#CEE9f1" }}>
-        <div className="toolbar">
-          {/* <button className="learn-more">Today</button> */}
-          <button className="learn-more" onClick={AddTaskOnClick}>
-            Add Task
-          </button>
-          {/* <img className="moonClass" src={moon}></img>
+      <header className="myDayHeaderClass">
+        <h1>{localized}</h1>
+        {/* <div className="toolbar"> */}
+        {/* <button className="learn-more">Today</button> */}
+        {/* <img className="moonClass" src={moon}></img>
           <img className="sunClass" src={sun}></img> */}
-        </div>
+        {/* </div> */}
       </header>
       {/* //make this time live? */}
       {/* setInterval(localized, 60000); */}
 
-      <h1>{localized}</h1>
       <div className="my-day-container">
+        <button className="learn-more" onClick={AddTaskOnClick}>
+          Add Task
+        </button>
         <div style={{ marginBottom: "90px", flexGrow: 1 }}>
           <section className="tasksClass">
             <div tasks={taskReducer}></div>
@@ -108,8 +107,12 @@ export default function MyDay() {
                       <h5>{task.task_name}</h5>
                       <ul>
                         {/* <li>{`Start Time: ${task.task_time_start}`}</li> */}
-                        <li>{`Start Time: ${startTimeConverted(task.task_time_start)}`}</li>
-                        <li>{`Start Time: ${startTimeConverted(task.task_time_end)}`}</li>
+                        <li>{`Start Time: ${startTimeConverted(
+                          task.task_time_start
+                        )}`}</li>
+                        <li>{`End Time: ${startTimeConverted(
+                          task.task_time_end
+                        )}`}</li>
                         {/* <li>{`End Time: ${task.task_time_end}`}</li> */}
                       </ul>
 

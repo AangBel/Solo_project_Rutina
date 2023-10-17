@@ -1,5 +1,6 @@
 /* FILEPATH: /Users/angelica/PrimeAcademy/Jade/Tier2/solo/Solo_project_Rutina/src/components/UserPage/UserPage.css */
 
+
 /* Center the content */
 .container {
     display: flex;
@@ -7,7 +8,22 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-image: url('../images/waterImage.svg');
+    background-size: cover;
 }
+
+.welcomeText {
+    position: absolute; /* add position absolute to the welcomeText */
+    top: 50%; /* position the welcomeText at the center of the card */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* add a higher z-index to the welcomeText to make it appear on top */
+  }
+  
+.bubble {
+    position: relative; /* add position relative to the bubble */
+    z-index: 0; /* add a lower z-index to the bubble to make it appear behind the welcomeText */
+  }
 
 /* Style the user info section */
 .user-info {

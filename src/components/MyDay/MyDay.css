@@ -11,6 +11,11 @@ text-align: center;
 background-color: #c1d7f5;
 }
 
+
+.myDayHeaderClass{
+  background-color: #cee9f1;
+
+}
 li{
   padding:10px;
 }
@@ -20,7 +25,7 @@ li{
 } */
 .toolbar{
   padding: 20px;
-  background-color: white;
+  background-color: #c1d7f5;
 
 }
 
