@@ -28,22 +28,19 @@ export default function RightNow() {
       }
     };
 
-    // Set an interval to update progress every minute (60000 milliseconds)
+    // Setting an interval to update progress every minute (60000 milliseconds)
     const intervalId = setInterval(updateProgress, 60000);
 
     // Call it once on component mount
     updateProgress();
 
-    // Clear the interval when the component unmounts
+    // Clearing the interval when the component unmounts
     return () => clearInterval(intervalId);
   }, [taskReducer]);
 
   return (
     <>
-      <div>
-        <p>Space for things</p>
-      </div>
-      <div>
+      <div className="taskNameDivClass">
         {taskReducer.length > 0 ? (
           <div>
             <h2>Active Task:</h2>
@@ -53,8 +50,11 @@ export default function RightNow() {
           <p>No active task right now.</p>
         )}
       </div>
-      <div>
+      <div className="circleClass">
+      <div className="divAboveCircle" style={{ width: 400, height: 400 }}>
         <CircularProgressbar value={percentageFromTask} text={`${percentageFromTask.toFixed(2)}%`} />
+      </div>
+
       </div>
     </>
   );
