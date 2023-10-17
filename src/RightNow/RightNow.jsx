@@ -51,7 +51,7 @@ export default function RightNow() {
         )}
       </div>
       <div className="circleClass">
-      <div className="divAboveCircle" style={{ width: 400, height: 400 }}>
+      <div className="divAboveCircle" style={{ width: 600, height: 600 }}>
         <CircularProgressbar value={percentageFromTask} text={`${percentageFromTask.toFixed(2)}%`} />
       </div>
 

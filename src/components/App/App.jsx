@@ -24,6 +24,7 @@ import "./App.css";
 import AddTask from "../AddTask/AddTask";
 import RightNow from "../../RightNow/RightNow";
 import AddBell from "../AddBell/AddBell";
+import Pomodoro from "../Pomodoro/Pomodoro";
 
 function App() {
   const dispatch = useDispatch();
@@ -75,6 +76,10 @@ function App() {
 
           <ProtectedRoute exact path="/Bells">
             <Bells />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/Pomodoro">
+            <Pomodoro />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/RightNow">

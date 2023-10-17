@@ -23,6 +23,8 @@
     "ampm",
     "hacer",
     "myday",
+    "Pomodoro",
+    "Rutina",
     "tailwindcss"
   ],
   "sqltools.connections": [

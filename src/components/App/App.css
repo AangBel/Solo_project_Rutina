@@ -10,7 +10,9 @@ body,
 }
 
 body {
-  font-family: 'Pixelify Sans', sans-serif;
+  /* font-family: 'Pixelify Sans', sans-serif; */
+  font-family: 'Press Start 2p', serif;
+
   /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   margin: 0px;
   /* background-image: url("https://images.pexels.com/photos/2860705/pexels-photo-2860705.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"); */

@@ -30,6 +30,11 @@ function Bells() {
     history.push("/AddBell");
   }
 
+  function addPomodoro() {
+    console.log("clicked to add Pomodoro");
+    history.push("/Pomodoro");
+  }
+
   function deleteBellOnClick(bellId) {
     console.log("the delete bell button has been clicked");
     dispatch({ type: "DELETE_BELL_REQUEST", payload: bellId });
@@ -42,6 +47,9 @@ function Bells() {
         <div className="toolbar">
           <button className="learn-more" onClick={addBellOnClick}>
             Add Bell
+          </button>
+          <button className="learn-more" onClick={addPomodoro}>
+            Add Pomodoro
           </button>
         </div>
       </header>

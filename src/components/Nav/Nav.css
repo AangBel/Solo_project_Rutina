@@ -54,7 +54,9 @@
 }
 
 .nav-title {
-  font-family: 'Pixelify Sans', sans-serif;
+  /* font-family: 'Pixelify Sans', sans-serif; */
+  font-family: 'Press Start 2p', serif;
+
   font-size: 40px;
   font-weight: 700;
   color:#00455F;
