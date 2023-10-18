@@ -5,6 +5,8 @@ import taskReducer from './taskReducer';
 // import selectedTaskToEdit from './editTaskReducer';
 import {bellReducer} from './bellReducer';
 
+import EditTaskStore from './editTaskReducer';
+import selectedTaskId from './select.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
   taskReducer,
   // storeForEditTask: selectedTaskToEdit,
   bellReducer,
+  EditTaskStore,
+  selectedTaskId,
 });
 
 export default rootReducer;

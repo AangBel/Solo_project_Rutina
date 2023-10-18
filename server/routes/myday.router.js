@@ -82,7 +82,9 @@ router.put("/:id", (req, res) => {
   console.log("this should be the task id:", taskId);
 
   //we want to be able to update the task_name and the time ...
-  const updateTaskName = req.body.task_name;
+  // const updateTaskName = req.body.task_name;
+  const updateTaskName = req.body;
+
   console.log("this should be the updated task name?", updateTaskName);
 
   let mySqlQuery = `

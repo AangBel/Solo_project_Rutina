@@ -25,6 +25,7 @@ import AddTask from "../AddTask/AddTask";
 import RightNow from "../../RightNow/RightNow";
 import AddBell from "../AddBell/AddBell";
 import Pomodoro from "../Pomodoro/Pomodoro";
+import EditTask from "../EditTask/EditTask";
 
 function App() {
   const dispatch = useDispatch();
@@ -73,7 +74,6 @@ function App() {
             <MyDay />
           </ProtectedRoute>
 
-
           <ProtectedRoute exact path="/Bells">
             <Bells />
           </ProtectedRoute>
@@ -84,6 +84,10 @@ function App() {
 
           <ProtectedRoute exact path="/RightNow">
             <RightNow />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/EditTask">
+            <EditTask />
           </ProtectedRoute>
 
           <Route exact path="/login">

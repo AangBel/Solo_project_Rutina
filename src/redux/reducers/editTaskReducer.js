@@ -11,4 +11,18 @@
 //     }
 // }
 
-// export default selectedTaskToEdit;
+const EditTaskStore = (state = {}, action) => {
+    if (action.type === 'EDIT_TASK_ONCHANGE'){
+        return {
+            ...state, 
+            [action.payload.property]: action.payload.value,
+        };
+    // } else if (action.type === 'CLEAR_EDIT_TASK') {
+    //     return {};
+    }
+    return state;
+    }
+
+
+
+export default EditTaskStore;

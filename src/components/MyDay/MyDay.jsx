@@ -5,9 +5,11 @@ import dayjs from "dayjs";
 
 import "./MyDay.css";
 
+import { PacmanLoader } from "react-spinners";
+
 import sun from "../images/sun.svg";
 import moon from "../images/moon.png";
-// import TaskCard from "../TaskCard/TaskCard";
+
 
 const localizedFormat = require("dayjs/plugin/localizedFormat");
 dayjs.extend(localizedFormat);
@@ -27,6 +29,7 @@ export default function MyDay() {
   console.log("in the MyDay function");
   const dispatch = useDispatch();
   const history = useHistory();
+  const isLoading = useSelector((state) => state.isLoading);
 
   const taskReducer = useSelector((state) => state.taskReducer);
   console.log("this is task store:", taskReducer);
@@ -44,15 +47,18 @@ export default function MyDay() {
     console.log("clicked add task");
     history.push("/AddTask");
   }
-
+  //this takes into the SelectedTaskToedit action with a payload with the id of task
   function editTaskOnClick(task) {
     console.log("clicked to edit task");
     handleEditTask(task);
   }
-  const handleEditTask = (task) => {
-    dispatch({ type: "EDIT_TASK", payload: task });
-    console.log("this is the task in handleEdit task", task);
-    console.log("this is the task in handleEdit task.id", task.id);
+  const handleEditTask = (taskId) => {
+    // dispatch({ type: "EDIT_TASK", payload: task });
+    dispatch({ type: "SELECTED_TASK_TO_EDIT", payload: taskId });
+
+    // console.log("this is the task in handleEdit task(actually doing id)", task);
+    // console.log("this is the task in handleEdit task.id", task.id);
+    history.push('/EditTask');
   };
 
   function deleteTaskOnClick(task) {
@@ -95,6 +101,11 @@ export default function MyDay() {
           Add Task
         </button>
         <div style={{ marginBottom: "90px", flexGrow: 1 }}>
+        {isLoading ? (
+            <div className="loader-container">
+              <PacmanLoader color={"#123abc"} loading={isLoading} />
+            </div>
+          ) : (
           <section className="tasksClass">
             <div tasks={taskReducer}></div>
             <div className="CardClassMap">
@@ -140,6 +151,7 @@ export default function MyDay() {
               ))}
             </div>
           </section>
+          )}
         </div>
       </div>
     </>

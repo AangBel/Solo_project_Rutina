@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { PacmanLoader } from "react-spinners";
 
 function Bells() {
   console.log("in the bells function");
   const history = useHistory();
   const dispatch = useDispatch();
+  const isLoading = useSelector((state) => state.isLoading);
 
   useEffect(() => {
     dispatch({ type: "FETCH_BELLS" });
@@ -55,6 +57,11 @@ function Bells() {
       </header>
 
       <div style={{ marginBottom: "90px", flexGrow: 1 }}>
+      {isLoading ? (
+          <div className="loader-container">
+            <PacmanLoader color={"#123abc"} loading={isLoading} />
+          </div>
+        ) : (
         <div className="BellClassMap">
           {bellReducer.map((bell) => (
             <div className="card shadow" key={bell.id}>
@@ -72,6 +79,7 @@ function Bells() {
             </div>
           ))}
         </div>
+        )}
       </div>
     </>
   );
