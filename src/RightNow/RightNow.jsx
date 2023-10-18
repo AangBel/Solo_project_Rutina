@@ -42,9 +42,9 @@ export default function RightNow() {
     <>
       <div className="taskNameDivClass">
         {taskReducer.length > 0 ? (
-          <div>
-            <h2>Active Task:</h2>
-            <p>{taskReducer[0].task_name}</p>
+          <div className="RightNowText">
+            <h2 className="activeTaskText">Active Task:</h2>
+            <p className="taskName">{taskReducer[0].task_name}</p>
           </div>
         ) : (
           <p>No active task right now.</p>

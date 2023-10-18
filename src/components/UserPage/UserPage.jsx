@@ -15,6 +15,9 @@ function UserPage() {
   const isLoading = useSelector((store) => store.isLoading);
   return (
     <>
+    <div className="aboveFooter">
+
+   
       <div className="container">
         <div className="card shadow">
           <h2 className="welcomeText">Welcome, {user.username}!</h2>
@@ -24,12 +27,13 @@ function UserPage() {
             </div>
           ) : (
             <>
-              <img src={bubble} alt="a speech bubble" className="bubble" />
-              <img src={CatInABoat} alt="Boat bobbing amongst waves gif" />
+              {/* <img src={bubble} alt="a speech bubble" className="bubble" /> */}
               <LogOutButton className="btn" />
+              <img src={CatInABoat} alt="Boat bobbing amongst waves gif" />
             </>
           )}
         </div>
+      </div> 
       </div>
     </>
   );

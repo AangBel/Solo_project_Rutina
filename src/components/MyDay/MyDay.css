@@ -1,3 +1,12 @@
+body{
+  /* background-color: #007dac; */
+
+}
+
+.timeColor{
+background-color: #007dac;
+
+}
 h5 {
   /* font-family: "Pixelify Sans", sans-serif; */
   font-family: 'Press Start 2p', serif;
@@ -8,16 +17,31 @@ h5 {
 }
 
 h1{
+  font-family: 'Gruppo', sans-serif;
+  color: #e7f8ff;
 
 text-align: center;
-background-color: #c1d7f5;
+background-color: #007dac;
+
 }
 
 
 .myDayHeaderClass{
-  background-color: #cee9f1;
+  background-color: #007dac;
 
 }
+
+.headerClass{
+  background-color: #007dac;
+
+
+}
+
+.AddTaskClass{
+padding-left: 35px;
+
+}
+
 li{
   padding:10px;
 }
@@ -27,7 +51,8 @@ li{
 } */
 .toolbar{
   padding: 20px;
-  background-color: white;
+  background-color: #ebf6f9;
+  color: #ebf6f9;
 
 }
 
@@ -47,7 +72,7 @@ li{
   width: auto;
   height: auto;
   /* padding: 1px; */
-  margin: 50px 50px 50px 90px;
+  margin: 50px 50px 50px 50px;
   border: 50px;
   background: 240 240 240;
   border-radius: 10px;
@@ -276,7 +301,7 @@ button.learn-more:active::before {
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  padding-top: 100px; /* adjust as needed to avoid overlapping with the nav bar */
+  padding-top: 10px; 
 }
 
 /* -----------------
@@ -289,4 +314,9 @@ button.learn-more:active::before {
  .moonClass{
   width: 20px;
   height:20px;
+ }
+
+ /* ------------------------ */
+ .taskTextClass{
+  padding-left: 16px;
  }

@@ -3,6 +3,8 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { PacmanLoader } from "react-spinners";
 
+import './Bells.css';
+
 function Bells() {
   console.log("in the bells function");
   const history = useHistory();
@@ -68,7 +70,7 @@ function Bells() {
         </div>
       </header>
 
-      <div style={{ marginBottom: "90px", flexGrow: 1 }}>
+      <div style={{ marginBottom: "90px", flexGrow: 1 }} className="BellDiv">
       {isLoading ? (
           <div className="loader-container">
             <PacmanLoader color={"#123abc"} loading={isLoading} />

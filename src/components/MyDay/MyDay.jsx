@@ -81,21 +81,27 @@ export default function MyDay() {
 
   return (
     <>
+    <div className="headerClass">
+
       <header className="myDayHeaderClass">
-        <h1>{localized}</h1>
+        <h1 className="timeColor">{localized}</h1>
         {/* <div className="toolbar"> */}
         {/* <button className="learn-more">Today</button> */}
         {/* <img className="moonClass" src={moon}></img>
           <img className="sunClass" src={sun}></img> */}
         {/* </div> */}
       </header>
+          </div>
       {/* //make this time live? */}
       {/* setInterval(localized, 60000); */}
 
       <div className="my-day-container">
+        <div className="AddTaskClass">
+
         <button className="learn-more" onClick={AddTaskOnClick}>
           Add Task
         </button>
+        </div>
         <div style={{ marginBottom: "90px", flexGrow: 1 }}>
         {isLoading ? (
             <div className="loader-container">
@@ -111,7 +117,7 @@ export default function MyDay() {
                     style={{ backgroundColor: "#f0f0f0", marginBottom: "16px" }}
                   >
                     <div className="card-content">
-                      <h5>{task.task_name}</h5>
+                      <h5 className="taskTextClass">{task.task_name}</h5>
                       <ul>
                         {/* <li>{`Start Time: ${task.task_time_start}`}</li> */}
                         <li>{`Start Time: ${startTimeConverted(
