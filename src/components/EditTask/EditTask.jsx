@@ -48,7 +48,7 @@ export default function EditTask(props) {
     event.preventDefault();
     // axios.put(`/api/tasks/${props.match.params.id}`, EditTaskStore)
    
-    axios.put(`/api/tasks/${selectedTaskId}`)
+    axios.put(`/api/tasks/${selectedTaskId}`, EditTaskStore)
     .then(response => {
         console.log('response from PUT request:', response);
         // dispatch({ type: 'CLEAR_EDIT_TASK' });
