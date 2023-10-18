@@ -51,8 +51,8 @@ export default function EditTask(props) {
     axios.put(`/api/tasks/${selectedTaskId}`, EditTaskStore)
     .then(response => {
         console.log('response from PUT request:', response);
-        // dispatch({ type: 'CLEAR_EDIT_TASK' });
-        history.push('/tasklist');
+        dispatch({ type: 'CLEAR_EDIT_TASK' });
+        history.push('/MyDay');
     })
     .catch(error => {
         console.log('error in PUT request', error);
