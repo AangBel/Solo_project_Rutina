@@ -55,9 +55,6 @@ export default function MyDay() {
   const handleEditTask = (taskId) => {
     // dispatch({ type: "EDIT_TASK", payload: task });
     dispatch({ type: "SELECTED_TASK_TO_EDIT", payload: taskId });
-
-    // console.log("this is the task in handleEdit task(actually doing id)", task);
-    // console.log("this is the task in handleEdit task.id", task.id);
     history.push('/EditTask');
   };
 
@@ -69,7 +66,6 @@ export default function MyDay() {
 
   function completeTaskOnClick(task) {
     console.log("clicked the complete button");
-    console.log("this is the task to be deleted:", task);
     dispatch({ type: "COMPLETE_TASK", payload: task });
   }
 

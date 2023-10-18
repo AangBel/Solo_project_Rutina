@@ -36,6 +36,18 @@ function Bells() {
     console.log("clicked to add Pomodoro");
     history.push("/Pomodoro");
   }
+  function editBellOnClick(bell) {
+    console.log("clicked to edit bell");
+    console.log("this is edit bell on click bell", bell);
+
+    handleEditBell(bell);
+  }
+  const handleEditBell = (bellId) => {
+    console.log("this is bellId in handleEditBell:", bellId);
+
+    dispatch({ type: "SELECTED_BELL_TO_EDIT", payload: bellId });
+    history.push('/EditBell');
+  };
 
   function deleteBellOnClick(bellId) {
     console.log("the delete bell button has been clicked");
@@ -69,7 +81,7 @@ function Bells() {
               <ul>
                 <li>{`Time: ${bell.time}`}</li>
               </ul>
-              <button className="learn-more">EDIT</button>
+              <button className="learn-more" onClick={() => editBellOnClick(bell.id)}>EDIT</button>
               <button
                 className="learn-more"
                 onClick={() => deleteBellOnClick(bell.id)}

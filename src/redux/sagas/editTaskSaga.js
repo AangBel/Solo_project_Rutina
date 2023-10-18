@@ -40,8 +40,8 @@ function* editTask(action) {
 
 function* yieldEdit() {
   console.log("in the yieldEdit generator function");
-  // yield takeEvery("EDIT_TASK", editTask);
-  // yield takeEvery("SELECTED_TASK_TO_EDIT", editTask);
+
+
   yield takeEvery("EDIT_TASK_ONCHANGE", editTask);
 
 }

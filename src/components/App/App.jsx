@@ -26,6 +26,7 @@ import RightNow from "../../RightNow/RightNow";
 import AddBell from "../AddBell/AddBell";
 import Pomodoro from "../Pomodoro/Pomodoro";
 import EditTask from "../EditTask/EditTask";
+import EditBell from "../EditBell/EditBell";
 
 function App() {
   const dispatch = useDispatch();
@@ -88,6 +89,10 @@ function App() {
 
           <ProtectedRoute exact path="/EditTask">
             <EditTask />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/EditBell">
+            <EditBell />
           </ProtectedRoute>
 
           <Route exact path="/login">
