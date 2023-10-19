@@ -10,23 +10,47 @@ dayjs.extend(localizedFormat);
 
 export default function RightNow() {
   const taskReducer = useSelector((state) => state.taskReducer);
+  console.log('this is task reducer', taskReducer);
   const [percentageFromTask, setPercentageFromTask] = useState(0);
 
-  useEffect(() => {
-    const updateProgress = () => {
-      const now = new Date();
-      for (let i = 0; i < taskReducer.length; i++) {
-        const task = taskReducer[i];
-        const startTime = new Date(task.task_time_start);
-        const endTime = new Date(task.task_time_end);
-        if (now >= startTime && now <= endTime) {
-          const durationTime = now - startTime;
-          const totalTime = endTime - startTime;
-          const percentTime = (durationTime / totalTime) * 100;
-          setPercentageFromTask(percentTime);
-        }
+
+  const storedActiveTask = localStorage.getItem("activeTask");
+  // const initialActiveTask = storedActiveTask ? JSON.parse(storedActiveTask) : null;
+
+  const [activeTask, setActiveTask] = useState('');
+
+  const updateProgress = () => {
+    const now = new Date();
+    let activeTask = null;
+    console.log('this is active Task at line 19', activeTask);
+
+    for (let i = 0; i < taskReducer.length; i++) {
+      const task = taskReducer[i];
+      const startTime = new Date(task.task_time_start);
+      const endTime = new Date(task.task_time_end);
+      if (now >= startTime && now <= endTime) {
+        activeTask = task;
+        console.log('this is task at line 27', task);
+        break;
       }
-    };
+    }
+
+    if (activeTask) {
+      localStorage.setItem("activeTask", JSON.stringify(activeTask));
+    }
+
+
+
+    if (activeTask) {
+      console.log('this is active task at line 31', activeTask);
+      const durationTime = now - new Date(activeTask.task_time_start);
+      const totalTime = new Date(activeTask.task_time_end) - new Date(activeTask.task_time_start);
+      const percentTime = (durationTime / totalTime) * 100;
+      setPercentageFromTask(percentTime);
+    }
+    setActiveTask(activeTask);
+  };
+  useEffect(() => {
 
     // Setting an interval to update progress every minute (60000 milliseconds)
     const intervalId = setInterval(updateProgress, 60000);
@@ -36,15 +60,15 @@ export default function RightNow() {
 
     // Clearing the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, [taskReducer]);
+  }, [activeTask]);
 
   return (
     <>
       <div className="taskNameDivClass">
-        {taskReducer.length > 0 ? (
+        {activeTask ? (
           <div className="RightNowText">
             <h2 className="activeTaskText">Active Task:</h2>
-            <p className="taskName">{taskReducer[0].task_name}</p>
+            <p className="taskName">{activeTask.task_name}</p>
           </div>
         ) : (
           <p>No active task right now.</p>

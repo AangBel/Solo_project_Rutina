@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import "./AddTask.css";
 
-import dayjs from "dayjs"; 
+import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
 
@@ -40,8 +40,15 @@ const AddTask = () => {
     // const formattedStartTime = formatTime(startTime);
     // const formattedEndTime = formatTime(endTime);
 
-    const localStartTime = dayjs(taskTimeStart).utc().format();
-    const localEndTime = dayjs(taskTimeEnd).utc().format();
+    // const localStartTime = dayjs(taskTimeStart).utc().format();
+    const localStartTime = dayjs(taskTimeStart).tz("America/Chicago").format();
+    console.log('this is local Start time:', localStartTime);
+
+    // const localEndTime = dayjs(taskTimeEnd).utc().format();
+    const localEndTime = dayjs(taskTimeEnd).tz("America/Chicago").format();
+
+    console.log('this is local end time:', localEndTime);
+
 
     const taskConst = {
       task_name: taskName,
@@ -77,6 +84,7 @@ const AddTask = () => {
           <input
             id="startTimeInput"
             type="datetime-local"
+            // type="time"
             onChange={(e) => setTaskTimeStart(e.target.value)}
           />
 
@@ -84,6 +92,7 @@ const AddTask = () => {
           <input
             id="endTimeInput"
             type="datetime-local"
+            // type="time"
             onChange={(e) => setTaskTimeEnd(e.target.value)}
           />
 

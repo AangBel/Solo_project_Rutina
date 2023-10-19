@@ -70,7 +70,7 @@ function Bells() {
         </div>
       </header>
 
-      <div style={{ marginBottom: "90px", flexGrow: 1 }} className="BellDiv">
+      <div className="BellDiv">
       {isLoading ? (
           <div className="loader-container">
             <PacmanLoader color={"#123abc"} loading={isLoading} />

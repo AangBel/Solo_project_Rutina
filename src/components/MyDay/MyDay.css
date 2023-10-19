@@ -1,67 +1,57 @@
-body{
+/* body{
   /* background-color: #007dac; */
 
-}
+/* } */
 
-.timeColor{
-background-color: #007dac;
-
+.timeColor {
+  background-color: #cee9f1;
 }
 h5 {
   /* font-family: "Pixelify Sans", sans-serif; */
-  font-family: 'Press Start 2p', serif;
+  font-family: "Press Start 2p", serif;
 
   font-size: 36px;
   margin-bottom: 20px;
   margin-top: 13px;
 }
 
-h1{
-  font-family: 'Gruppo', sans-serif;
-  color: #e7f8ff;
-
-text-align: center;
-background-color: #007dac;
-
-}
-
-
-.myDayHeaderClass{
+h1 {
+  font-family: "Gruppo", sans-serif;
+  color: #007dac;
+  font-style: italic;
+  text-align: center;
   background-color: #007dac;
-
 }
 
-.headerClass{
+.myDayHeaderClass {
   background-color: #007dac;
-
-
 }
 
-.AddTaskClass{
-padding-left: 35px;
-
+.headerClass {
+  background-color: #007dac;
 }
 
-li{
-  padding:10px;
+.AddTaskClass {
+  padding-left: 35px;
+}
+
+li {
+  padding: 10px;
 }
 /* this one changes the card fonts to gruppo */
 /* .tasksClass{
   font-family: "Gruppo", sans-serif;
 } */
-.toolbar{
+.toolbar {
   padding: 20px;
   background-color: #ebf6f9;
   color: #ebf6f9;
-
 }
 
 .card-content {
   width: auto;
   border-radius: 10px;
   padding: 10px;
-
-
 }
 /* ---------------- */
 /* .CardClassMap{
@@ -96,7 +86,7 @@ button {
   text-decoration: none;
   font-family: inherit;
   font-size: 15px;
-  margin:10px;
+  margin: 10px;
 }
 
 button.learn-more {
@@ -297,26 +287,26 @@ button.learn-more:active::before {
 /* /////-----------------
  */
 .my-day-container {
-  background-image: url('../images/1.svg');
+  background-image: url("../images/1.svg");
   background-size: cover;
   background-position: center;
   min-height: 100vh;
-  padding-top: 10px; 
+  padding-top: 10px;
 }
 
 /* -----------------
  */
- .sunClass{
+.sunClass {
   width: 20px;
-  height:20px;
- }
+  height: 20px;
+}
 
- .moonClass{
+.moonClass {
   width: 20px;
-  height:20px;
- }
+  height: 20px;
+}
 
- /* ------------------------ */
- .taskTextClass{
+/* ------------------------ */
+.taskTextClass {
   padding-left: 16px;
- }
+}
