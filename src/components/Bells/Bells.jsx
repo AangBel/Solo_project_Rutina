@@ -78,7 +78,7 @@ function Bells() {
         ) : (
         <div className="BellClassMap">
           {bellReducer.map((bell) => (
-            <div className="card shadow" key={bell.id}>
+            <div className="bellCard" key={bell.id}>
               <h5>{bell.timer_name}</h5>
               <ul>
                 <li>{`Time: ${bell.time}`}</li>
