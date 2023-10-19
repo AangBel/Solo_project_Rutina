@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useSelector } from "react-redux";
 
 import axios from 'axios';
+import './EditBell.css';
 
 const EditBell = () => {
     const [bellName, setBellName] = useState('');
@@ -44,9 +45,9 @@ const EditBell = () => {
     };
 
     return (
-        <div>
+        <div className='edit-bell-container'>
             <h2>Edit Bell</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className='edit-bell-form'>
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input type="text" id="name" value={bellName} onChange={handleNameChange} />
@@ -55,7 +56,7 @@ const EditBell = () => {
                     <label htmlFor="time">Time:</label>
                     <input type="time" id="time" value={bellTime} onChange={handleTimeChange} />
                 </div>
-                <button type="submit" className="learn-more">Save</button>
+                <button type="submit" className="saveEditBellBtn">Save</button>
             </form>
         </div>
     );

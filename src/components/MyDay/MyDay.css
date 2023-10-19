@@ -61,7 +61,7 @@ li {
 }
 /* ---------------- */
 /* .CardClassMap{
-
+margin: 50px;
 } */
 /* ----------------------------- */
 .card {
@@ -82,7 +82,7 @@ li {
 
 /* ----------------------- */
 /* LEARN MORE */
-button {
+button.learn-more {
   position: relative;
   display: inline-block;
   cursor: pointer;

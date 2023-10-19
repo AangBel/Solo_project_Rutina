@@ -20,7 +20,7 @@
   font-family: 'Courier New', Courier, monospace;
   background-color: #CEE9F1;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 40px;
 
 }
 
@@ -37,6 +37,7 @@
   color: #e7f8ff;
   background-color: #007dac;
   padding-top: 10px;
+  /* padding-bottom: 10px; */
 
 }
 
@@ -44,6 +45,7 @@
 .taskName{
   color: #e7f8ff;
   background-color: #007dac;
+  padding-bottom: 10px;
 
 
 }

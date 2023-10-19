@@ -78,6 +78,7 @@ const AddTask = () => {
             id="taskNameInput"
             type="text"
             onChange={(e) => setTaskName(e.target.value)}
+            className="textInput"
           />
 
           <h6>Start Time:</h6>
@@ -96,7 +97,7 @@ const AddTask = () => {
             onChange={(e) => setTaskTimeEnd(e.target.value)}
           />
 
-          <div className="button-container">
+          <div className="button-container-add-task">
             <button className="AddTaskButton" onClick={addTaskEvent}>
               Add Task To Routine
             </button>
