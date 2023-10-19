@@ -18,9 +18,10 @@ function UserPage() {
     <div className="aboveFooter">
 
    
+          <h2 className="welcomeText">Welcome, {user.username}!</h2>
       <div className="container">
         <div className="card shadow">
-          <h2 className="welcomeText">Welcome, {user.username}!</h2>
+          <img src={CatInABoat} alt="Boat bobbing amongst waves gif" />
           {isLoading ? (
             <div className="loader-container">
               <PacmanLoader color={"#123abc"} loading={isLoading} />
@@ -29,7 +30,6 @@ function UserPage() {
             <>
               {/* <img src={bubble} alt="a speech bubble" className="bubble" /> */}
               <LogOutButton className="btn" />
-              <img src={CatInABoat} alt="Boat bobbing amongst waves gif" />
             </>
           )}
         </div>
