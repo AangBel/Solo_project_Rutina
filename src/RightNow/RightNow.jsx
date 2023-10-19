@@ -64,6 +64,9 @@ export default function RightNow() {
 
   return (
     <>
+    <div className="extendSizeofRNpage">
+
+    
       <div className="taskNameDivClass">
         {activeTask ? (
           <div className="RightNowText">
@@ -79,6 +82,7 @@ export default function RightNow() {
         <CircularProgressbar value={percentageFromTask} text={`${percentageFromTask.toFixed(2)}%`} />
       </div>
 
+      </div>
       </div>
     </>
   );

@@ -9,7 +9,7 @@
 
 h1 {
   text-align: center;
-  background-color: white;
+  background-color: #CEE9F1;
 }
 h2 {
   text-align: center;
@@ -26,6 +26,7 @@ h2 {
   height: 407px;
 }
 .tomatoCard {
+  /* display: flexbox; */
   width: auto;
   height: auto;
   padding: 10px;
@@ -42,4 +43,12 @@ img{
     height:200px;
     padding-left:90px;
 
+}
+
+/* .card-container-pomodoro{
+  
+} */
+
+.spaceUnderCard{
+  height: 900px;
 }

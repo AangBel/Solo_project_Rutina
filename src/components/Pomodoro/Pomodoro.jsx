@@ -45,9 +45,12 @@ const Pomodoro = () => {
 
   return (
     <>
+    <div className="spaceUnderCard">
+
+    
       <div className="squishCardClass">
         <div className="tomatoCard">
-          <div className="card-container">
+          <div className="card-container-pomodoro">
             <img src={cuteTomato} className="tomato" alt="Tomato" />
             <h1>{isBreak ? "Break" : "Work"}</h1>
             <h2>{formatTime(timer)}</h2>
@@ -65,6 +68,7 @@ const Pomodoro = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </>
   );
