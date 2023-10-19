@@ -17,7 +17,7 @@ h5 {
 
 h1 {
   font-family: "Gruppo", sans-serif;
-  color: #007dac;
+  color: #00455f;
   font-style: italic;
   text-align: center;
   background-color: #007dac;
@@ -92,7 +92,7 @@ button.learn-more {
   text-decoration: none;
   font-family: inherit;
   font-size: 15px;
-  margin: 10px;
+  margin: 10px 10px 10px;
 }
 
 button.learn-more {
@@ -293,7 +293,7 @@ button.learn-more:active::before {
 /* /////-----------------
  */
 .my-day-container {
-  background-image: url("../images/1.svg");
+  /* background-image: url("../images/1.svg"); */
   background-size: cover;
   background-position: center;
   min-height: 100vh;
