@@ -1,15 +1,25 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+
+// CSS-----------------------------------------------------------
 import "./AddTask.css";
 
+// DAY.JS--------------------------------------------------------
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
-
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("America/Chicago");
+
+// SWEET ALERT----------------------------------------------------
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
+
+// ---------------------------------------------------------------
 
 const AddTask = () => {
   const history = useHistory();
@@ -19,36 +29,11 @@ const AddTask = () => {
   const [taskTimeStart, setTaskTimeStart] = useState("");
   const [taskTimeEnd, setTaskTimeEnd] = useState("");
 
-  // Function to format a date object as a time string in 12-hour format
-  // const formatTime = (date) => {
-  //   const hours = date.getHours();
-  //   const minutes = date.getMinutes();
-  //   const ampm = hours >= 12 ? "PM" : "AM";
-  //   const formattedHours = hours % 12 || 12;
-  //   const formattedMinutes = minutes.toString().padStart(2, "0");
-  //   return `${formattedHours}:${formattedMinutes} ${ampm}`;
-  // };
-
   function addTaskEvent(event) {
     event.preventDefault();
 
-    // Convert the input values to Date objects
-    // const startTime = new Date(taskTimeStart);
-    // const endTime = new Date(taskTimeEnd);
-
-    // Format the time in 12-hour format
-    // const formattedStartTime = formatTime(startTime);
-    // const formattedEndTime = formatTime(endTime);
-
-    // const localStartTime = dayjs(taskTimeStart).utc().format();
     const localStartTime = dayjs(taskTimeStart).tz("America/Chicago").format();
-    console.log('this is local Start time:', localStartTime);
-
-    // const localEndTime = dayjs(taskTimeEnd).utc().format();
     const localEndTime = dayjs(taskTimeEnd).tz("America/Chicago").format();
-
-    console.log('this is local end time:', localEndTime);
-
 
     const taskConst = {
       task_name: taskName,
@@ -58,11 +43,28 @@ const AddTask = () => {
       userId: 1,
     };
 
-    dispatch({
-      type: "ADD_TASK",
-      payload: taskConst,
+    MySwal.fire({
+      title: "New Task Created",
+      icon: "success",
+      confirmButtonText: "Ok",
+      showCloseButton: true,
+      html: `
+        <div>
+          <p>Task Name: ${taskName}</p>
+          <p>Start Time: ${localStartTime}</p>
+          <p>End Time: ${localEndTime}</p>
+        </div>
+      `,
+    }).then((result) => {
+      if (result.isConfirmed || result.dismiss === Swal.DismissReason.close) {
+        dispatch({
+          type: "ADD_TASK",
+          payload: taskConst,
+        });
+
+        history.push("/MyDay");
+      }
     });
-    history.push("/MyDay");
   }
 
   function cancelAddTask() {
@@ -85,7 +87,6 @@ const AddTask = () => {
           <input
             id="startTimeInput"
             type="datetime-local"
-            // type="time"
             onChange={(e) => setTaskTimeStart(e.target.value)}
           />
 
@@ -93,7 +94,6 @@ const AddTask = () => {
           <input
             id="endTimeInput"
             type="datetime-local"
-            // type="time"
             onChange={(e) => setTaskTimeEnd(e.target.value)}
           />
 
@@ -107,6 +107,6 @@ const AddTask = () => {
       </div>
     </div>
   );
-};
+}
 
 export default AddTask;

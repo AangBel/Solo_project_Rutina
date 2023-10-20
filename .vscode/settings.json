@@ -26,6 +26,8 @@
     "Pacman",
     "Pomodoro",
     "Rutina",
+    "Swal",
+    "sweetalert",
     "tailwindcss"
   ],
   "sqltools.connections": [

@@ -8,7 +8,9 @@ import 'react-circular-progressbar/dist/styles.css';
 const localizedFormat = require("dayjs/plugin/localizedFormat");
 dayjs.extend(localizedFormat);
 
+
 export default function RightNow() {
+
   const taskReducer = useSelector((state) => state.taskReducer);
   console.log('this is task reducer', taskReducer);
   const [percentageFromTask, setPercentageFromTask] = useState(0);
