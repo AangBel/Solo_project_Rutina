@@ -9,9 +9,13 @@ import "./AddTask.css";
 import dayjs from "dayjs";
 import utc from "dayjs/plugin/utc";
 import timezone from "dayjs/plugin/timezone";
+import localizedFormat from "dayjs/plugin/localizedFormat";
 dayjs.extend(utc);
 dayjs.extend(timezone);
 dayjs.tz.setDefault("America/Chicago");
+
+dayjs().format("LLLL");
+dayjs.extend(localizedFormat); // Use localizedFormat here
 
 // SWEET ALERT----------------------------------------------------
 import Swal from "sweetalert2";
@@ -34,6 +38,13 @@ const AddTask = () => {
     const localStartTime = dayjs(taskTimeStart).tz("America/Chicago").format();
     const localEndTime = dayjs(taskTimeEnd).tz("America/Chicago").format();
 
+    const localStartTimeFormatted = dayjs(localStartTime).format(
+      "MMM DD, YYYY h:mm A"
+    );
+    const localEndTimeFormatted = dayjs(localEndTime).format(
+      "MMM DD, YYYY h:mm A"
+    );
+
     const taskConst = {
       task_name: taskName,
       task_time_start: localStartTime,
@@ -50,8 +61,8 @@ const AddTask = () => {
       html: `
         <div>
           <p>Task Name: ${taskName}</p>
-          <p>Start Time: ${localStartTime}</p>
-          <p>End Time: ${localEndTime}</p>
+          <p>Start Time: ${localStartTimeFormatted}</p>
+          <p>End Time: ${localEndTimeFormatted}</p>
         </div>
       `,
     }).then((result) => {
@@ -72,16 +83,15 @@ const AddTask = () => {
 
   return (
     // <div className="container">
-    //This one pushes the footer down 
+    //This one pushes the footer down
     <div className="my-day-container">
       {/* //this one resizes the card */}
-        {/* <div className="AddTaskClass"> */}
+      {/* <div className="AddTaskClass"> */}
 
-        <div className="CardClassMapAdd">
+      <div className="CardClassMapAdd">
         <div className="taskInput">
-
-      {/* <div className="paper"> */}
-        {/* <div className="content"> */}
+          {/* <div className="paper"> */}
+          {/* <div className="content"> */}
           <h6>Task Name:</h6>
           <input
             id="taskNameInput"
@@ -96,7 +106,6 @@ const AddTask = () => {
             type="datetime-local"
             onChange={(e) => setTaskTimeStart(e.target.value)}
             className="dateInput"
-
           />
 
           <h6>End Time:</h6>
@@ -105,21 +114,22 @@ const AddTask = () => {
             type="datetime-local"
             onChange={(e) => setTaskTimeEnd(e.target.value)}
             className="dateInput"
-
           />
 
           <div className="button-container-add-task">
             <button className="AddTaskButton" onClick={addTaskEvent}>
               Add Task
             </button>
-            <button onClick={cancelAddTask} className="CancelBtn">Cancel</button>
+            <button onClick={cancelAddTask} className="CancelBtn">
+              Cancel
+            </button>
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
     // </div>
   );
-}
+};
 
 export default AddTask;
