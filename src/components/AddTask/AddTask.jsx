@@ -82,7 +82,7 @@ const AddTask = () => {
 
       {/* <div className="paper"> */}
         {/* <div className="content"> */}
-          <h6>Task Name</h6>
+          <h6>Task Name:</h6>
           <input
             id="taskNameInput"
             type="text"
