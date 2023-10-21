@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 
+import './AddBell.css';
+
 const AddBell = () => {
   console.log("in the add bell const under addBell.jsx");
   const history = useHistory();
@@ -35,10 +37,10 @@ const AddBell = () => {
     history.push("/Bells");
   }
   return (
-    <div className="container">
-      <div className="paper">
-        <div className="content">
-          <h6>Bell Name</h6>
+    <div className="containerBell">
+      <div className="taskInputBell">
+        <div className="contentBell">
+          <h6>Bell Name:</h6>
           <input
             id="bellNameInput"
             type="text"
@@ -51,11 +53,11 @@ const AddBell = () => {
             onChange={(e) => setBellTime(e.target.value)}
           />
 
-          <div className="button-container">
-            <button className="AddTaskButton" onClick={addBellEvent}>
+          <div className="button-containerBell">
+            <button className="AddBellButton" onClick={addBellEvent}>
               Add Bell
             </button>
-            <button onClick={cancelAddBell}>Cancel</button>
+            <button onClick={cancelAddBell} className="CancelBtnBell">Cancel</button>
           </div>
         </div>
       </div>
