@@ -45,30 +45,28 @@ const Pomodoro = () => {
 
   return (
     <>
-    <div className="spaceUnderCard">
-
-    
-      <div className="squishCardClass">
-        <div className="tomatoCard">
-          <div className="card-container-pomodoro">
-            <img src={cuteTomato} className="tomato" alt="Tomato" />
-            <h1>{isBreak ? "Break" : "Work"}</h1>
-            <h2>{formatTime(timer)}</h2>
-            <div className="button-container">
-              {!isActive && (
-                <button onClick={handleStart} className="learn-more">
-                  Start
-                </button>
-              )}
-              {isActive && (
-                <button onClick={handleReset} className="learn-more">
-                  Reset
-                </button>
-              )}
+      <div className="spaceUnderCard">
+        <div className="squishCardClass">
+          <div className="tomatoCard">
+            <div className="card-container-pomodoro">
+              <img src={cuteTomato} className="tomato" alt="Tomato" />
+              <h1>{isBreak ? "Break" : "Work"}</h1>
+              <h2>{formatTime(timer)}</h2>
+              <div className="button-container">
+                {!isActive && (
+                  <button onClick={handleStart} className="learn-morePom">
+                    Start
+                  </button>
+                )}
+                {isActive && (
+                  <button onClick={handleReset} className="learn-morePom">
+                    Reset
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </div>
     </>
   );

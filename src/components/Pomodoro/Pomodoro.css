@@ -1,11 +1,13 @@
 /* FILEPATH: /Users/angelica/PrimeAcademy/Jade/Tier2/solo/Solo_project_Rutina/src/components/Pomodoro/Pomodoro.css */
 
-/* .tomato { */
-  /* position: absolute; */
-  /* position: center; */
-
-  /* transform: translate(-50%, -50%); */
-/* } */
+.tomato { 
+  /* position: absolute; */ 
+  display: grid;
+  position: center;
+  justify-content: center;
+  max-width:900px;
+  height: 300px;
+}
 
 h1 {
   text-align: center;
@@ -23,10 +25,12 @@ h2 {
 }
 .squishCardClass {
   width: 567px;
-  height: 407px;
+  height: 507px;
+  display: inline;
 }
 .tomatoCard {
-  /* display: flexbox; */
+  display: grid;
+  justify-content: center;
   width: auto;
   height: auto;
   padding: 10px;
@@ -39,16 +43,99 @@ h2 {
     0.3em 0.3em 1em rgba(115, 104, 104, 0.3);
 }
 
-img{
+/* img{
     height:200px;
-    padding-left:90px;
+    /* padding-left:90px; */
+    /* display: inline; */
 
-}
+/* } */
 
 /* .card-container-pomodoro{
   
 } */
 
 .spaceUnderCard{
-  height: 900px;
+  /* height: 900px; */
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  margin-bottom: 100px;
 }
+
+/* ----------------------- */
+/* LEARN MORE */
+
+.learn-morePom {
+  /* position: relative; */
+  display: grid;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  font-family: inherit;
+  font-size: 15px;
+  margin: 10px 10px 10px;
+  font-weight: 600;
+  color: #382b22;
+  text-transform: uppercase;
+  padding: 1.25em 2em;
+  background: #b5ddea;
+  border: 2px solid #60a9bf;
+  border-radius: 0.75em;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transition: background 150ms cubic-bezier(0, 0, 0.58, 1),
+    -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+    background 150ms cubic-bezier(0, 0, 0.58, 1),
+    -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+.learn-morePom::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #355e6a;
+  border-radius: inherit;
+  -webkit-box-shadow: 0 0 0 2px #d2eaf2, 0 0.625em 0 0 #d2eaf2;
+  box-shadow: 0 0 0 2px #2a4b55, 0 0.625em 0 0 #d2eaf2;
+  -webkit-transform: translate3d(0, 0.75em, -1em);
+  transform: translate3d(0, 0.75em, -1em);
+  transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+    box-shadow 150ms cubic-bezier(0, 0, 0.58, 1),
+    -webkit-transform 150ms cubic-bezier(0, 0, 0.58, 1),
+    -webkit-box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+
+.learn-morePom:hover{
+  background: #88c9dd;
+  -webkit-transform: translate(0, 0.25em);
+  transform: translate(0, 0.25em);
+}
+.learn-morePom:hover::before{
+  -webkit-box-shadow: 0 0 0 2px rgb(105, 121, 145), 0 0.5em 0 0 #d2eaf2;
+  box-shadow: 0 0 0 2px rgb(26, 11, 99), 0 0.5em 0 0 #d2eaf2;
+  -webkit-transform: translate3d(0, 0.5em, -1em);
+  transform: translate3d(0, 0.5em, -1em);
+}
+.learn-morePom:active{
+  background: rgb(61, 18, 216);
+  -webkit-transform: translate(0em, 0.75em);
+  transform: translate(0em, 0.75em);
+}
+.learn-morePom:active::before{
+  -webkit-box-shadow: 0 0 0 2px #d2eaf2, 0 0 #d2eaf2;
+  box-shadow: 0 0 0 2px #d2eaf2, 0 0 #d2eaf2;
+  -webkit-transform: translate3d(0, 0, -1em);
+  transform: translate3d(0, 0, -1em);
+}
+
+/* ----------------------- */
