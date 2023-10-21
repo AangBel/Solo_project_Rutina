@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { PacmanLoader } from "react-spinners";
 
-import './Bells.css';
+import "./Bells.css";
 
 function Bells() {
   console.log("in the bells function");
@@ -48,7 +48,7 @@ function Bells() {
     console.log("this is bellId in handleEditBell:", bellId);
 
     dispatch({ type: "SELECTED_BELL_TO_EDIT", payload: bellId });
-    history.push('/EditBell');
+    history.push("/EditBell");
   };
 
   function deleteBellOnClick(bellId) {
@@ -57,6 +57,15 @@ function Bells() {
     // dispatch({ type: "DELETE_BELL", payload: { id: bellId } });
   }
 
+  function formatTime(time) {
+    const timeParts = time.split(":");
+    const hours = parseInt(timeParts[0], 10);
+    const minutes = parseInt(timeParts[1], 10);
+    const ampm = hours >= 12 ? "PM" : "AM";
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    return `${formattedHours}:${formattedMinutes} ${ampm}`;
+  }
   return (
     <>
       <header style={{ background: "#CEE9f1" }}>
@@ -71,28 +80,33 @@ function Bells() {
       </header>
 
       <div className="BellDiv">
-      {isLoading ? (
+        {isLoading ? (
           <div className="loader-container">
             <PacmanLoader color={"#123abc"} loading={isLoading} />
           </div>
         ) : (
-        <div className="BellClassMap">
-          {bellReducer.map((bell) => (
-            <div className="bellCard" key={bell.id}>
-              <h5>{bell.timer_name}</h5>
-              <ul>
-                <li>{`Time: ${bell.time}`}</li>
-              </ul>
-              <button className="learn-more" onClick={() => editBellOnClick(bell.id)}>EDIT</button>
-              <button
-                className="learn-more"
-                onClick={() => deleteBellOnClick(bell.id)}
-              >
-                DELETE
-              </button>
-            </div>
-          ))}
-        </div>
+          <div className="BellClassMap">
+            {bellReducer.map((bell) => (
+              <div className="bellCard" key={bell.id}>
+                <h5>{bell.timer_name}</h5>
+                <ul>
+                  <li>{`Time: ${formatTime(bell.time)}`}</li>
+                </ul>
+                <button
+                  className="learn-more"
+                  onClick={() => editBellOnClick(bell.id)}
+                >
+                  EDIT
+                </button>
+                <button
+                  className="learn-more"
+                  onClick={() => deleteBellOnClick(bell.id)}
+                >
+                  DELETE
+                </button>
+              </div>
+            ))}
+          </div>
         )}
       </div>
     </>
