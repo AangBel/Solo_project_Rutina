@@ -116,7 +116,7 @@ const AddTask = () => {
             className="dateInput"
           />
 
-          <div className="button-container-add-task">
+          <div className="button-containerTask">
             <button className="AddTaskButton" onClick={addTaskEvent}>
               Add Task
             </button>

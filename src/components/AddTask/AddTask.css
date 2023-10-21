@@ -35,10 +35,10 @@ input {
   width: auto;
 }
 
-.button-button-container-add-task {
+.button-containerTask {
   display: flex;
-  justify-content: space-between;
-  margin-top: 16px;
+  /* justify-content: space-between; */
+  /* margin-top: 16px; */
 }
 
 .AddTaskButton {
@@ -118,7 +118,8 @@ input {
   color: #606060;
   text-shadow: 0 1px #fff;
   margin-bottom: 12px;
-  margin-left: 3px;
+  margin-left: 162px;
+  margin-top: 5px;
 }
 
 .CancelBtn:hover {
