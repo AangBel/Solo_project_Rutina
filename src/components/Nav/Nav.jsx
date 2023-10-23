@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import { useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 
 function Nav() {
   const user = useSelector((store) => store.user);
+  const location = useLocation();
 
   return (
     <div className="nav">
@@ -27,19 +28,19 @@ function Nav() {
           <>
           <div>
 
-            <Link className="navLink" to="/user">
+            <Link to="/user" className={location.pathname === "/user" ? "navLink active" : "navLink"} >
               Home
             </Link>
 
-            <Link className="navLink" to="/MyDay">
+            <Link to="/MyDay" className={location.pathname === "/MyDay" ? "navLink active" : "navLink"}>
               My Day
             </Link>
             
-            <Link className="navLink" to="/RightNow">
+            <Link to="/RightNow" className={location.pathname === "/RightNow" ? "navLink active" : "navLink"}>
               Right Now
             </Link>
 
-            <Link className="navLink" to="/Bells">
+            <Link to="/Bells" className={location.pathname === "/Bells" ? "navLink active" : "navLink"}>
               Bells
             </Link>
 

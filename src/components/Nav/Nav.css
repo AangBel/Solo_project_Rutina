@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 30px;
+  margin: 0 0 10px;
   background-color: #CEE9F1;
   overflow: hidden;
 }
@@ -64,6 +64,16 @@
   margin: 0;
 }
 
+.nav-title:active {
+  font-family: 'Press Start 2p', serif;
+
+  font-size: 40px;
+  font-weight: 700;
+  color:#a4bac0;
+  padding-left: 10px;
+  margin: 0;
+}
+
 .navLink {
   display: inline-block;
   color:#006a92;
@@ -84,4 +94,13 @@
 .navLink:hover {
   background-color: #00455F;
   color:white;
+}
+/* .navLink:active {
+  background-color: #2f697e;
+  color:white;
+} */
+
+.active {
+  background-color: #93cee0;
+  color: white;
 }
