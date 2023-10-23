@@ -5,9 +5,9 @@ import { useSelector } from "react-redux";
 import { PacmanLoader } from "react-spinners";
 
 import "./UserPage.css";
-import framedBoat from "../images/framedBoat.gif";
+// import framedBoat from "../images/framedBoat.gif";
 import CatInABoat from "../images/CatInABoat.png";
-import bubble from "../images/bubble.png";
+// import bubble from "../images/bubble.png";
 
 function UserPage() {
   // this component doesn't do much to start, just renders some user reducer info to the DOM
@@ -17,11 +17,10 @@ function UserPage() {
     <>
     <div className="aboveFooter">
 
-   
           <h2 className="welcomeText">Welcome, {user.username}!</h2>
       <div className="container">
         <div className="card shadow">
-          <img src={CatInABoat} alt="Boat bobbing amongst waves gif" />
+          <img src={CatInABoat} alt="Boat bobbing amongst waves gif" className="catInABoat"/>
           {isLoading ? (
             <div className="loader-container">
               <PacmanLoader color={"#123abc"} loading={isLoading} />

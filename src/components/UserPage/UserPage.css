@@ -100,8 +100,12 @@
     background-color: #0069d9;
 }
 
-img{
+/* img{
     animation: mymove 5s infinite;
     width:fit-content;
     height:fit-content
+} */
+
+.catInABoat{
+    height: 200px;
 }
