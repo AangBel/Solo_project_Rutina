@@ -7,6 +7,8 @@ export default function EditTask(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  
+
   //this is where we are currently holding the new name value
   const EditTaskStore = useSelector((store) => store.EditTaskStore);
   console.log("this is edit task store", EditTaskStore);
@@ -41,6 +43,9 @@ export default function EditTask(props) {
   //   }
 
   function handleChange(event) {
+    const name = event.target.name;
+const value = event.target.value;
+
     // const { name, value } = event.target;
     dispatch({
       type: "EDIT_TASK_ONCHANGE",
@@ -75,9 +80,12 @@ export default function EditTask(props) {
     history.push("/MyDay");
   }
   return (
-    <>
+    
+    <div className='edit-bell-container'>
+
+
       <h2>Edit Task:</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className='edit-bell-form'>
         <input
           type="text"
           name="taskName"
@@ -100,10 +108,11 @@ export default function EditTask(props) {
           onChange={handleChange}
         />
 
-        <button type="submit" onClick={handleSubmit} className="learn-more">
+        <button type="submit" onClick={handleSubmit} className="saveEditBellBtn">
           Save
         </button>
       </form>
-    </>
+    </div>
+  
   );
 }
