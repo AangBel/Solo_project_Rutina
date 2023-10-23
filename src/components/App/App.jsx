@@ -136,13 +136,13 @@ function App() {
             <AddBell />
           </Route>
 
-          {/* <Route exact path="/MyDay">
+          <Route exact path="/MyDay">
             <MyDay />
           </Route>
 
           <Route exact path="/RightNow">
             <RightNow />
-          </Route> */}
+          </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

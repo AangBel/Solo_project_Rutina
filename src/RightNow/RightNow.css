@@ -36,9 +36,10 @@
 .activeTaskText{
   color: #e7f8ff;
   background-color: #007dac;
-  padding-top: 10px;
+  padding-top: 11px;
   /* padding-bottom: 10px; */
-
+  margin-bottom: 10px;
+  margin-top: 2px;
 }
 
 /* ---------- */
@@ -46,7 +47,8 @@
   color: #e7f8ff;
   background-color: #007dac;
   padding-bottom: 10px;
-
+  margin-bottom: 20px;
+  margin-top: 14px;
 
 }
 

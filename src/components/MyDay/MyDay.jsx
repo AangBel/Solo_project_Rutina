@@ -108,7 +108,7 @@ export default function MyDay() {
                   <div key={task.id} className="card shadow">
                     <div
                       style={{
-                        backgroundColor: "#f0f0f0",
+                        backgroundColor: "#CEE9F1",
                         marginBottom: "16px",
                       }}
                     >
@@ -137,12 +137,12 @@ export default function MyDay() {
                         >
                           DELETE
                         </button>
-                        <button
+                        {/* <button
                           className="learn-more"
                           onClick={() => completeTaskOnClick(task.id)}
                         >
                           COMPLETE
-                        </button>
+                        </button> */}
                       </div>
                     </div>
                   </div>

@@ -69,7 +69,7 @@ function Bells() {
   return (
     <>
       <header style={{ background: "#CEE9f1" }}>
-        <div className="toolbar">
+        <div className="toolbarBell">
           <button className="learn-more" onClick={addBellOnClick}>
             Add Bell
           </button>
@@ -88,7 +88,7 @@ function Bells() {
           <div className="BellClassMap">
             {bellReducer.map((bell) => (
               <div className="bellCard" key={bell.id}>
-                <h5>{bell.timer_name}</h5>
+                <h5 className="taskTextClass">{bell.timer_name}</h5>
                 <ul>
                   <li>{`Time: ${formatTime(bell.time)}`}</li>
                 </ul>
