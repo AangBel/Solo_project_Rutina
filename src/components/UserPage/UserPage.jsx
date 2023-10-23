@@ -6,6 +6,7 @@ import { PacmanLoader } from "react-spinners";
 
 import "./UserPage.css";
 // import framedBoat from "../images/framedBoat.gif";
+// import RightNow from "../../RightNow/RightNow";
 import CatInABoat from "../images/CatInABoat.png";
 // import bubble from "../images/bubble.png";
 
@@ -20,7 +21,7 @@ function UserPage() {
           <h2 className="welcomeText">Welcome, {user.username}!</h2>
       <div className="container">
         <div className="card shadow">
-          <img src={CatInABoat} alt="Boat bobbing amongst waves gif" className="catInABoat"/>
+          {/* <img src={CatInABoat} alt="Boat bobbing amongst waves gif" className="catInABoat"/> */}
           {isLoading ? (
             <div className="loader-container">
               <PacmanLoader color={"#123abc"} loading={isLoading} />

@@ -16,13 +16,10 @@ h2 {
 }
 
 .button-container {
-
   justify-content: center;
   display: flex; 
   padding-top: 20px;
   padding-bottom: 20px;
-
-
 }
 
 
@@ -33,8 +30,8 @@ h2 {
   /* display: flex; */
   justify-content: center; /* Center the content horizontally */
   align-items: center; /* Center the content vertically */
-
 }
+
 .tomatoCard {
   display: flex;
   flex-direction: column; /* Stack children vertically */
@@ -51,16 +48,6 @@ h2 {
     /* height: 700px; */
 }
 
-/* img{
-    height:200px;
-    /* padding-left:90px; */
-    /* display: inline; */
-
-/* } */
-
-/* .card-container-pomodoro{
-  
-} */
 
 .spaceUnderCard{
   height: 900px;

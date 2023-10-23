@@ -26,7 +26,7 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-          <div>
+          {/* <div> */}
 
             <Link to="/user" className={location.pathname === "/user" ? "navLink active" : "navLink"} >
               Home
@@ -45,7 +45,7 @@ function Nav() {
             </Link>
 
             <LogOutButton className="navLink" />
-          </div>
+          {/* </div> */}
           </>
         )}
 
