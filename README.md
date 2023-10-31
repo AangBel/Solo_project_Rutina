@@ -1,7 +1,3 @@
-Great, thanks for sharing information about your application, Rutina. Based on the details you provided, here's a description for your application:
-
----
-
 **Title: Rutina - Your Daily Routine Simplified**
 
 **Description:**
